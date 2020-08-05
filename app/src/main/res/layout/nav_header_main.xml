@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/cardview_dark_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/login_default"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인화면"
+        android:textSize="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <Button
+            android:id="@+id/login_user"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="유저"
+            android:background="#A6A6A6"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+        <Button
+            android:id="@+id/login_manager"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="관리자"
+            android:background="#A6A6A6"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
