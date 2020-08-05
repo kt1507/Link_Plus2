@@ -11,6 +11,9 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    <string name="action_login">로그인 창</string>
+    <string name="action_listview">리스트뷰</string>
+
     <string name="home_second">Home Second</string>
     <string name="title_activity_maps">Map</string>
 </resources>
