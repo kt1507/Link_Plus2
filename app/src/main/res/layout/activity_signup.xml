@@ -33,13 +33,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:hint="E-Mail"
+            android:inputType="textEmailAddress"
+            android:hint="이메일 주소 입력"
             />
         <EditText
             android:id="@+id/sign_up_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:inputType="textPassword"
+            android:hint="비밀번호 입력"
+            />
+        <EditText
+            android:id="@+id/sign_up_pwd_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="비밀번호 입력 확인"
             />
         <Button
             android:id="@+id/sign_up_btn"

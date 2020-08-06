@@ -54,13 +54,17 @@
                 android:id="@+id/main_email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="ID"/>
+                android:hint="ID"
+                android:inputType="textEmailAddress"
+                />
 
             <EditText
                 android:id="@+id/main_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="PASSWORD"/>
+                android:hint="PASSWORD"
+                android:inputType="textPassword"
+                />
 
 
         <Button
@@ -107,7 +111,13 @@
                 android:text="아이디 찾기"
                 android:layout_alignParentLeft="true"
                 />
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Google"
+                android:layout_centerHorizontal="true"
+                />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
