@@ -43,17 +43,18 @@ public class LoginActivity extends AppCompatActivity {
                 String email = email_login.getText().toString().trim();
                 String pwd = pwd_login.getText().toString().trim();
 
+                // 이메일과 페스워드를 통한 로그인방식
                 firebaseAuth.signInWithEmailAndPassword(email, pwd)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "로그인 오류", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "아이디 혹은 페스워드가 올바르지 않습니다!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

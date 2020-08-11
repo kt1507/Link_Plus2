@@ -46,27 +46,48 @@ public class SignUpActivity extends AppCompatActivity {
                 String pwd = pwd_join.getText().toString().trim();
                 String pwd_check = pwd_check_join.getText().toString().trim();
 
-                if(pwd.equals(pwd_check)) {
+                if (email_join.getText().toString().length() == 0){
+                    Toast.makeText(SignUpActivity.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    email_join.requestFocus();
+                    return;
+                } // else if - email is empty
+                if (pwd_join.getText().toString().length() == 0){
+                    Toast.makeText(SignUpActivity.this, "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    pwd_join.requestFocus();
+                    return;
+                } // else if - pwd is empty
+                if (pwd_check_join.getText().toString().length() == 0){
+                    Toast.makeText(SignUpActivity.this, "비밀번호 확인란을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    pwd_check_join.requestFocus();
+                    return;
+                } // else if -pwd check is empty
+                if (!pwd_join.getText().toString().equals(pwd_check_join.getText().toString())){
+                    Toast.makeText(SignUpActivity.this, "입력하신 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                    pwd_join.setText("");
+                    pwd_check_join.setText("");
+                    pwd_join.requestFocus();
+                    return;
+                } // else if - pwd equals
+
+                if(pwd_join.getText().toString().equals(pwd_check_join.getText().toString())) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
+                                Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.", Toast.LENGTH_SHORT).show();
                                 // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 finish();
-                            } else {
-                                Toast.makeText(getApplicationContext(), "등록 에러", Toast.LENGTH_SHORT).show();
-                                return;
                             }
+                            else {
+                                Toast.makeText(SignUpActivity.this, "이메일 양식을 지켜주세요", Toast.LENGTH_SHORT).show();
+                                email_join.requestFocus();
+                                return;
+                            } // else - email 입력형식 오류
                         }
                     });
-
                 } // if - pwd equals
-                else{
-                    Toast.makeText(getApplicationContext(), "입력하신 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG);
-                    return;
-                } // else - pwd equals
             } // onClick END
         }); // 버튼 onClickListener END
     } // onCreate END
