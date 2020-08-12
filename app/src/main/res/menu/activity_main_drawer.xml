@@ -8,31 +8,31 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="모두 표시" />
+            android:title="@string/category_main" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/topnie"
-            android:title="시공/설계" />
+            android:title="@string/category01" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/bosu"
-            android:title="유지/보수" />
+            android:title="@string/category02" />
         <item
             android:id="@+id/gonggu"
             android:icon="@drawable/spanner"
-            android:title="공구" />
+            android:title="@string/category03" />
         <item
             android:id="@+id/jungu"
             android:icon="@drawable/lightbulb"
-            android:title="전기/전자" />
+            android:title="@string/category04" />
         <item
             android:id="@+id/car"
             android:icon="@drawable/car"
-            android:title="자동차" />
+            android:title="@string/category05" />
         <item
             android:id="@+id/mungu"
             android:icon="@drawable/pencil"
-            android:title="문구" />
+            android:title="@string/category06" />
     </group>
 
 

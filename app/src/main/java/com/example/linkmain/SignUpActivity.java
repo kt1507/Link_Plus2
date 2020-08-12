@@ -12,8 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -23,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btn;
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +39,14 @@ public class SignUpActivity extends AppCompatActivity {
         pwd_check_join = (EditText) findViewById(R.id.sign_up_pwd_check);
         btn = (Button) findViewById(R.id.sign_up_btn);
 
-        firebaseAuth = FirebaseAuth.getInstance(); //firebase 연동
+        firebaseAuth = FirebaseAuth.getInstance(); //firebase 호출
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //입력 정보 정보 가져옴
-                String email = email_join.getText().toString().trim();
+                final String email = email_join.getText().toString().trim();
                 String pwd = pwd_join.getText().toString().trim();
                 String pwd_check = pwd_check_join.getText().toString().trim();
 
@@ -51,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
                     email_join.requestFocus();
                     return;
                 } // else if - email is empty
+                /* 존재하는 email 처리 (FirebaseAuthUserCollisionException) */
                 if (pwd_join.getText().toString().length() == 0){
                     Toast.makeText(SignUpActivity.this, "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
                     pwd_join.requestFocus();
@@ -74,9 +79,10 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                currentUser = firebaseAuth.getCurrentUser();
                                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
-                                Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();
                                 // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 finish();
                             }
@@ -91,4 +97,23 @@ public class SignUpActivity extends AppCompatActivity {
             } // onClick END
         }); // 버튼 onClickListener END
     } // onCreate END
+
+    private void sendVerificationEmail(){
+        ActionCodeSettings actionCodeSettings =
+                ActionCodeSettings.newBuilder()
+                        // URL you want to redirect back to. The domain (www.example.com) for this
+                        // URL must be whitelisted in the Firebase Console.
+                        .setUrl("https://www.example.com/finishSignUp?cartId=1234")
+                        // This must be true
+                        .setHandleCodeInApp(true)
+                        .setIOSBundleId("com.example.ios")
+                        .setAndroidPackageName(
+                                "com.example.android",
+                                true, /* installIfNotAvailable */
+                                "12"    /* minimumVersion */)
+                        .build();
+    } // sendVerificationEmail END
+
 } // public class END
+
+

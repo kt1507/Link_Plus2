@@ -105,6 +105,7 @@
             >
 
             <Button
+                android:id="@+id/search_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -112,6 +113,7 @@
                 android:layout_alignParentLeft="true"
                 />
             <Button
+                android:id="@+id/google"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -119,6 +121,7 @@
                 android:layout_centerHorizontal="true"
                 />
             <Button
+                android:id="@+id/search_pw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"

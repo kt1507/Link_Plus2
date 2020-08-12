@@ -30,19 +30,19 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <Button
-            android:id="@+id/login_user"
+            android:id="@+id/login_Btn_header"
             android:layout_width="70dp"
             android:layout_height="40dp"
-            android:text="유저"
+            android:text="로그인"
             android:background="#A6A6A6"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"/>
 
         <Button
-            android:id="@+id/login_manager"
+            android:id="@+id/logout_Btn_header"
             android:layout_width="70dp"
             android:layout_height="40dp"
-            android:text="관리자"
+            android:text="로그아웃"
             android:background="#A6A6A6"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"/>

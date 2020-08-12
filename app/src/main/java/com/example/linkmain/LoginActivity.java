@@ -2,6 +2,7 @@ package com.example.linkmain;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button join;
     private Button login;
+    private Button btn_email;
+    private Button btn_pw;
     private EditText email_login;
     private EditText pwd_login;
 
@@ -30,18 +33,31 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
 
-        join = (Button) findViewById(R.id.main_join_btn);
-        login = (Button) findViewById(R.id.main_login_btn);
+        join = (Button) findViewById(R.id.main_join_btn); // Btn - SignUp Button
+        login = (Button) findViewById(R.id.main_login_btn); // Btn - login Button
+        btn_email = (Button) findViewById(R.id.search_email); // Btn - search email
+        btn_pw = (Button) findViewById(R.id.search_pw); // Btn - search password
         email_login = (EditText) findViewById(R.id.main_email);
         pwd_login = (EditText) findViewById(R.id.main_pwd);
 
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = firebaseAuth.getInstance(); // firebaseAuth 호출
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = email_login.getText().toString().trim();
                 String pwd = pwd_login.getText().toString().trim();
+
+                if (email_login.getText().toString().length() == 0){
+                    Toast.makeText(LoginActivity.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    email_login.requestFocus();
+                    return;
+                } // else if - email is empty
+                if (pwd_login.getText().toString().length() == 0){
+                    Toast.makeText(LoginActivity.this, "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    pwd_login.requestFocus();
+                    return;
+                } // else if - pwd is empty
 
                 // 이메일과 페스워드를 통한 로그인방식
                 firebaseAuth.signInWithEmailAndPassword(email, pwd)
@@ -68,6 +84,24 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // 아이디찾기 + 비밀번호찾기 버튼 OnClick 사용시
+        /*
+        btn_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btn_pw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+         */
+
     }
 }
 

@@ -16,4 +16,12 @@
 
     <string name="home_second">Home Second</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="category_main">메인화면(MAP)</string>
+    <string name="category01">카테고리 01</string>
+    <string name="category02">카테고리 02</string>
+    <string name="category03">카테고리 03</string>
+    <string name="category04">카테고리 04</string>
+    <string name="category05">카테고리 05</string>
+    <string name="category06">카테고리 06</string>
 </resources>
