@@ -1,26 +1,28 @@
 package com.example.linkmain;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-public class ListViewActivity extends AppCompatActivity {
+public class ListViewFragment extends Fragment {
 
     private ListView listview;
     private ListViewAdapter adapter;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
 
-        //Adapter 생성
-        super.onCreate(savedInstanceState);
+        View root = inflater.inflate(R.layout.content_main, container, false);
 
-        setContentView(R.layout.listview_main);
         adapter = new ListViewAdapter();
 
         //리스트뷰 참조 및 Adapter 달기
-        listview = (ListView) findViewById(R.id.listview);
+        listview = (ListView) root.findViewById(R.id.listview);
         listview.setAdapter(adapter);
 
         //adapter를 통해 자료 추가
@@ -32,5 +34,11 @@ public class ListViewActivity extends AppCompatActivity {
         adapter.addItem("케이투발전기(주)", "042-673-9400", "08:00~18:30", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
 
         adapter.notifyDataSetChanged(); //어댑터의 변경을 알림
+
+        return root;
+    }
+
+    public void update(){
+        adapter.notifyDataSetChanged();
     }
 }
