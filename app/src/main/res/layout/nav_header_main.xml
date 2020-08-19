@@ -14,12 +14,25 @@
         android:src="@drawable/login_default"
         android:layout_marginTop="50dp" />
 
-    <TextView
-        android:id="@+id/text"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그인화면"
-        android:textSize="10dp" />
+        android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그인 계정 :   "
+                android:textSize="10dp" />
+            <TextView
+                android:id="@+id/textview_email_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#009688"
+                android:text=""
+                android:textStyle="bold"
+                android:textSize="12dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
