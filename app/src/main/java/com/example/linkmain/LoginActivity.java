@@ -49,7 +49,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // String
                 String email = email_login.getText().toString().trim();
+                String email_link = email + "@linkplus.com";
                 String pwd = pwd_login.getText().toString().trim();
 
                 if (email_login.getText().toString().length() == 0){
@@ -64,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 } // else if - pwd is empty
 
                 // 이메일과 페스워드를 통한 로그인방식
-                firebaseAuth.signInWithEmailAndPassword(email, pwd)
+                firebaseAuth.signInWithEmailAndPassword(email_link, pwd)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {

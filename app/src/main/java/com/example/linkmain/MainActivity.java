@@ -25,6 +25,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동
         user = firebaseAuth.getCurrentUser(); // User 정보
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
+        DatabaseReference conditionRef = mRootRef.child("text"); // Database 연동
 
         // nav_header_main 부분 onClick 이벤트 - 버튼으로 Layout 넘기기
         View headerView = navigationView.getHeaderView(0);

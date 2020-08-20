@@ -55,8 +55,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="ID"
-                android:inputType="textEmailAddress"
                 />
+            //android:inputType="textEmailAddress"
+
 
             <EditText
                 android:id="@+id/main_pwd"

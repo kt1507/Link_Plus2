@@ -17,6 +17,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -40,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.sign_up_btn);
 
         firebaseAuth = FirebaseAuth.getInstance(); //firebase 호출
+        final DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +51,9 @@ public class SignUpActivity extends AppCompatActivity {
 
                 //입력 정보 정보 가져옴
                 final String email = email_join.getText().toString().trim();
-                String pwd = pwd_join.getText().toString().trim();
+                final String pwd = pwd_join.getText().toString().trim();
                 String pwd_check = pwd_check_join.getText().toString().trim();
+                final String email_link = email + "@linkplus.com";
 
                 if (email_join.getText().toString().length() == 0){
                     Toast.makeText(SignUpActivity.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
@@ -75,7 +80,7 @@ public class SignUpActivity extends AppCompatActivity {
                 } // else if - pwd equals
 
                 if(pwd_join.getText().toString().equals(pwd_check_join.getText().toString())) {
-                    firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.createUserWithEmailAndPassword(email_link, pwd).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
@@ -83,6 +88,10 @@ public class SignUpActivity extends AppCompatActivity {
                                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();
+
+                                /*firebase Database User information*/
+                                mRootRef.child(email).child("Email").setValue(email_link); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
+                                mRootRef.child(email).child("PassWord").setValue(pwd);
                                 // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 finish();
                             }
@@ -113,6 +122,23 @@ public class SignUpActivity extends AppCompatActivity {
                                 "12"    /* minimumVersion */)
                         .build();
     } // sendVerificationEmail END
+
+    @IgnoreExtraProperties
+    public class User {
+
+        public String username;
+        public String email;
+
+        public User() {
+            // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        }
+
+        public User(String username, String email) {
+            this.username = username;
+            this.email = email;
+        }
+
+    }
 
 } // public class END
 
