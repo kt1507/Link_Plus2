@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,7 +30,11 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_pw;
     private EditText email_login;
     private EditText pwd_login;
-    private FirebaseAuth firebaseAuth;
+
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동;
+    private FirebaseUser user = firebaseAuth.getCurrentUser(); // User 정보 ;
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
+    private FirebaseUser currentUser = firebaseAuth.getCurrentUser();; // 현재 유져
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         btn_pw = (Button) findViewById(R.id.search_pw); // Btn - search password
         email_login = (EditText) findViewById(R.id.main_email);
         pwd_login = (EditText) findViewById(R.id.main_pwd);
-
-
-        firebaseAuth = firebaseAuth.getInstance(); // firebaseAuth 호출
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

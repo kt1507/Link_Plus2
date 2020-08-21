@@ -22,7 +22,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -33,8 +35,13 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private FirebaseAuth firebaseAuth;
-    private  FirebaseUser user;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동;
+    private FirebaseUser user = firebaseAuth.getCurrentUser(); // User 정보 ;
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
+    private FirebaseUser currentUser = firebaseAuth.getCurrentUser();; // 현재 유져
+    //public DatabaseReference conditionRef = mRootRef.child("text"); // Database 연동
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,16 +51,23 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동
-        user = firebaseAuth.getCurrentUser(); // User 정보
-        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
-        DatabaseReference conditionRef = mRootRef.child("text"); // Database 연동
+
+        // Action Button - 스크롤뷰 진입
+        FloatingActionButton fab_1 = findViewById(R.id.fab);
+        fab_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "리스트 뷰 올라와서 활성화", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                // Floating Action Button Active Code Edit here.
+            }
+        });
 
         // nav_header_main 부분 onClick 이벤트 - 버튼으로 Layout 넘기기
         View headerView = navigationView.getHeaderView(0);
         Button loginBtn = (Button) headerView.findViewById(R.id.login_Btn_header); // Login Btn
         Button logoutBtn = (Button) headerView.findViewById(R.id.logout_Btn_header); // Logout Btn
         Button DeleteBtn = (Button) headerView.findViewById(R.id.Delete_Btn_header); // Delete Btn
+        Button InfoBtn = (Button) headerView.findViewById(R.id.Info_btn); // Info Btn
         final TextView textViewUserEmail = (TextView) headerView.findViewById(R.id.textview_email_header); // TextView UserEmail
 
         // Btn - login
@@ -118,6 +132,14 @@ public class MainActivity extends AppCompatActivity {
                 builder.create().show();
             }
         });
+        // Btn - Info
+        InfoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "계정 정보로 이동합니다.", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
+            }
+        });
         // TextView - 사용자 로그인 상태에 따라 로그인 정보 출력.
         if(user != null) {
             String email = user.getEmail();
@@ -131,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -147,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // Option Item (상단 바)
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){

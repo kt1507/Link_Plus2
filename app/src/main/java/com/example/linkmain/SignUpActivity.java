@@ -28,8 +28,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText pwd_check_join;
     private Button btn;
 
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser currentUser;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동;
+    private FirebaseUser user = firebaseAuth.getCurrentUser(); // User 정보 ;
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
+    private FirebaseUser currentUser = firebaseAuth.getCurrentUser();; // 현재 유져
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         pwd_join = (EditText) findViewById(R.id.sign_up_pwd);
         pwd_check_join = (EditText) findViewById(R.id.sign_up_pwd_check);
         btn = (Button) findViewById(R.id.sign_up_btn);
-
-        firebaseAuth = FirebaseAuth.getInstance(); //firebase 호출
-        final DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +83,6 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                currentUser = firebaseAuth.getCurrentUser();
                                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();

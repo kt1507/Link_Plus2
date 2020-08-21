@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="사용자 정보"
+            android:text="사용자 정보 수정"
             android:textStyle="bold"
             android:textSize="30dp"
             android:gravity="center"
@@ -39,39 +39,37 @@
                 />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 // database에서 User Name, 정보 등 가져와서 hint로 띄우기
-                <TextView
-                    android:id="@+id/info_name"
+                <EditText
+                    android:id="@+id/change_info_name"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:hint="change name"
                     />
-                <TextView
-                    android:id="@+id/info_number"
+                <EditText
+                    android:id="@+id/change_info_number"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:hint="change number"
                     />
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/info_email"
+        <EditText
+            android:id="@+id/change_info_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text=""
-            android:textSize="25dp"
+            android:hint="change ID"
             />
-        <TextView
-            android:id="@+id/info_pw"
+        <EditText
+            android:id="@+id/change_info_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="25dp"
+            android:hint="change Password"
             />
 
         <LinearLayout
@@ -79,12 +77,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
-                android:id="@+id/info_change_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/change_info_cancel"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
                 android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="개인정보 수정"
+                android:layout_marginLeft="185dp"
+                android:text="취소"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+            <Button
+                android:id="@+id/change_info_save"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:text="저장"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 />

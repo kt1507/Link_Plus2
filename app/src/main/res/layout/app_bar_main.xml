@@ -22,5 +22,22 @@
 
     <include layout="@layout/content_main" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        app:srcCompat="@drawable/ic_baseline_dehaze_24"
+        android:tint="@android:color/white"
+        android:backgroundTint="@android:color/holo_purple"
+        />
+    /* Floating Action Button
+    기본값 = layout_margin : @dimen/fab_margin
+    android:backgroundTint : 버튼 색을 변경
+    android:src : 버튼 안에 아이콘 넣을 때 사용
+    app:pressedTranslationZ: 버튼 클릭 시 그림자 범위
+    app:elevation : 액티비티 바닥부터 버튼까지의 높이
+    */
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
