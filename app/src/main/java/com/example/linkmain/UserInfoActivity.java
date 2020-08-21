@@ -90,8 +90,22 @@ public class UserInfoActivity extends AppCompatActivity {
 */
         // Query select_Email = FirebaseDatabase.getInstance().getReference().child("database2").orderByChild("Email");
 
-       // Database 정보 가져오기 - child 당 정보를 가져오려면 객체 하나씩 사용해야함.
-        mRootRef.child("database2").child("Email").addValueEventListener(new ValueEventListener() {
+        // Database 정보 가져오기 - child 당 정보를 가져오려면 객체 하나씩 사용해야함.
+        // + child ""부분 현재 로그인 했던 계정으로 받아오도록 해야함.
+        // 1. 현재 로그인 계정의 정보를 추출함.
+        // 2-1. 데이터베이스 전체에서 로그인계정 문자열과 동일한 데이터베이스를 가져온다?
+        // 2-2. 로그인 계정의 ID만 추출한다. -> 이걸로 사용하되 현재 로그인 계정의 문자열을 가지고 와서 특정 문자 뒤로 문자열을 자르는 방식으로 추출하기
+        //       int idx = ~.indexOF("@");
+        //       String ~ = ~.substring(0, idx);
+        // 2-3. 사전 회원가입 시 DB 입력과정 시 Key Value를 이메일 값으로 지정한다. (이게 가장 좋아보임) - 오류 확인됨 key값으로 유효하지 않아 생기는 오류인듯
+
+        // 현재 로그인 계정의 이메일에서 @기준 앞부분만 추출 (ID)
+        String email = user.getEmail();
+        int idx = email.indexOf("@");
+        String email_OF = email.substring(0,idx);
+
+
+        mRootRef.child(email_OF).child("Email").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.d("UserinfoActivity","ValueEventListener : " + snapshot.getValue());
@@ -102,7 +116,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
             }
         });
-        mRootRef.child("database2").child("PassWord").addValueEventListener(new ValueEventListener() {
+        mRootRef.child(email_OF).child("PassWord").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.d("UserinfoActivity","ValueEventListener : " + snapshot.getValue());

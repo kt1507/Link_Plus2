@@ -21,13 +21,6 @@
             android:gravity="center"
             />
 
-        //이미지 삽입?
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            />
         <EditText
             android:id="@+id/sign_up_email"
             android:layout_width="match_parent"
@@ -50,6 +43,24 @@
             android:inputType="textPassword"
             android:hint="비밀번호 입력 확인"
             />
+
+        // 개인정보 입력란
+        <EditText
+            android:id="@+id/sign_up_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="50dp"
+            android:hint="닉네임 입력하기"
+            />
+        <EditText
+            android:id="@+id/sign_up_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="번호 입력하기"
+            />
+
         <Button
             android:id="@+id/sign_up_btn"
             android:layout_width="match_parent"

@@ -21,11 +21,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
 
-
 public class SignUpActivity extends AppCompatActivity {
     private EditText email_join;
     private EditText pwd_join;
     private EditText pwd_check_join;
+    private EditText name_join;
+    private EditText number_join;
     private Button btn;
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동;
@@ -42,6 +43,8 @@ public class SignUpActivity extends AppCompatActivity {
         email_join = (EditText) findViewById(R.id.sign_up_email);
         pwd_join = (EditText) findViewById(R.id.sign_up_pwd);
         pwd_check_join = (EditText) findViewById(R.id.sign_up_pwd_check);
+        name_join = (EditText) findViewById(R.id.sign_up_name);
+        number_join = (EditText) findViewById(R.id.sign_up_number);
         btn = (Button) findViewById(R.id.sign_up_btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +55,8 @@ public class SignUpActivity extends AppCompatActivity {
                 final String email = email_join.getText().toString().trim();
                 final String pwd = pwd_join.getText().toString().trim();
                 String pwd_check = pwd_check_join.getText().toString().trim();
+                final String name = name_join.getText().toString().trim();
+                final String number = number_join.getText().toString().trim();
                 final String email_link = email + "@linkplus.com";
 
                 if (email_join.getText().toString().length() == 0){
@@ -90,6 +95,9 @@ public class SignUpActivity extends AppCompatActivity {
                                 /*firebase Database User information*/
                                 mRootRef.child(email).child("Email").setValue(email_link); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
                                 mRootRef.child(email).child("PassWord").setValue(pwd);
+                                mRootRef.child(email).child("ID").setValue(email);
+                                mRootRef.child(email).child("Name").setValue(name);
+                                mRootRef.child(email).child("Number").setValue(number);
                                 // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 finish();
                             }
