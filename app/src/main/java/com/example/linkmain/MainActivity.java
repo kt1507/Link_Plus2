@@ -20,6 +20,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //FloatingActionButton fab = findViewById(R.id.fab);
         //fab.setOnClickListener(new View.OnClickListener() {
-       //     @Override
-       //     public void onClick(View view) {
-      //          Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-     //                   .setAction("Action", null).show();
-      //      }
-      //  });
+        //     @Override
+        //     public void onClick(View view) {
+        //          Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+        //                   .setAction("Action", null).show();
+        //      }
+        //  });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -70,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         page = findViewById(R.id.listview_framelayout);
 
         /* 위, 아래로 슬라이딩하는 애니메이션 객체 로딩 */
-        translateTopAnim = AnimationUtils.loadAnimation(this,R.anim.translate_top);
-        translateBottomAnim = AnimationUtils.loadAnimation(this,R.anim.translate_bottom);
-        translatestartAnim = AnimationUtils.loadAnimation(this,R.anim.start_listview_fragment);
+        translateTopAnim = AnimationUtils.loadAnimation(this, R.anim.translate_top);
+        translateBottomAnim = AnimationUtils.loadAnimation(this, R.anim.translate_bottom);
+        translatestartAnim = AnimationUtils.loadAnimation(this, R.anim.start_listview_fragment);
 
         page.startAnimation(translatestartAnim);
         page.setVisibility(View.INVISIBLE); //페이지 슬라이딩 끝난 후 페이지 안보이게
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationStart(Animation animation) {
                 page.setVisibility(View.VISIBLE); // 슬라이딩 시작할 때 페이지 보이게
-                Animbutton.setText("닫기");
+                //Animbutton.setText("닫기");
                 isPageOpen = true;
             }
 
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         translateBottomAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                Animbutton.setText("열기");
+                //Animbutton.setText("열기");
                 isPageOpen = false;
             }
 
@@ -121,12 +122,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Animbutton = findViewById(R.id.button);
-
-        // 버튼 클릭 이벤트 처리
-        Animbutton.setOnClickListener(new View.OnClickListener() {
+        // Action Button - 스크롤뷰 진입
+        FloatingActionButton fab_1 = findViewById(R.id.fab);
+        fab_1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                //Snackbar.make(view, "리스트 뷰 올라와서 활성화", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                // Floating Action Button Active Code Edit here.
+
                 if(isPageOpen){ //페이지 열려있으면
                     page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
                 }else{ //페이지 닫혀있으면
@@ -134,6 +137,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        /*Animbutton = findViewById(R.id.button);
+
+        // 버튼 클릭 이벤트 처리
+        Animbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPageOpen) { //페이지 열려있으면
+                    page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
+                } else { //페이지 닫혀있으면
+                    page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
+                }
+            }
+        });*/
     }
 
     @Override
