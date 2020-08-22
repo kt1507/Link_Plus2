@@ -127,7 +127,28 @@ public class UserInfoActivity extends AppCompatActivity {
 
             }
         });
+        mRootRef.child(email_OF).child("ID").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("UserinfoActivity","ValueEventListener : " + snapshot.getValue());
+                infoName.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        mRootRef.child(email_OF).child("Number").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("UserinfoActivity","ValueEventListener : " + snapshot.getValue());
+                infoNumber.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         // Btn - Go to Change Infomation
         infoChangeByn.setOnClickListener(new View.OnClickListener() {
@@ -137,18 +158,9 @@ public class UserInfoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "개인정보 수정페이지로 이동합니다!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(UserInfoActivity.this, UserInfoChangeActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
-/*
-        if(currentUser != null) {
-            String email = user.getEmail();
-            infoName.setText(select_Email_string);
-        }
-        else{
-            infoName.setText("로그인 정보 없음");
-        }
-
- */
     }
 
 }
