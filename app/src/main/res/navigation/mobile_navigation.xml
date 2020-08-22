@@ -41,4 +41,46 @@
         android:name="com.example.linkmain.ui.slideshow.SlideshowFragment"
         android:label="문구"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_cat1"
+        android:name="com.example.linkmain.ui.cat1.Cat1Fragment"
+        android:label="전기|조명|판넬"
+        tools:layout="@layout/cat1_fragment" />
+    <fragment
+        android:id="@+id/nav_cat2"
+        android:name="com.example.linkmain.ui.cat2.Cat2Fragment"
+        android:label="소방|안전용품|청소용품"
+        tools:layout="@layout/cat2_fragment" />
+    <fragment
+        android:id="@+id/nav_cat3"
+        android:name="com.example.linkmain.ui.cat3.Cat3Fragment"
+        android:label="공구|파이프|아크릴|목재"
+        tools:layout="@layout/cat3_fragment" />
+    <fragment
+        android:id="@+id/nav_cat4"
+        android:name="com.example.linkmain.ui.cat4.Cat4Fragment"
+        android:label="철물|철공예|철망|볼트"
+        tools:layout="@layout/cat4_fragment" />
+    <fragment
+        android:id="@+id/nav_cat5"
+        android:name="com.example.linkmain.ui.cat5.Cat5Fragment"
+        android:label="창호|장판|타일|보일러|천막"
+        tools:layout="@layout/cat5_fragment" />
+    <fragment
+        android:id="@+id/nav_cat6"
+        android:name="com.example.linkmain.ui.cat6.Cat6Fragment"
+        android:label="닥트|간판|식당용품|진열대"
+        tools:layout="@layout/cat6_fragment" />
+    <fragment
+        android:id="@+id/nav_cat7"
+        android:name="com.example.linkmain.ui.cat7.Cat7Fragment"
+        android:label="페인트|포장/접착|냉동"
+        tools:layout="@layout/cat7_fragment" />
+    <fragment
+        android:id="@+id/nav_cat8"
+        android:name="com.example.linkmain.ui.cat8.Cat8Fragment"
+        android:label="자동차용품|운반기기|모터펌프"
+        tools:layout="@layout/cat8_fragment" />
+
 </navigation>
