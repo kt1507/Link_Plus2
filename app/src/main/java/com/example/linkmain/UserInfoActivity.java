@@ -127,7 +127,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
             }
         });
-        mRootRef.child(email_OF).child("ID").addValueEventListener(new ValueEventListener() {
+        mRootRef.child(email_OF).child("Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.d("UserinfoActivity","ValueEventListener : " + snapshot.getValue());
