@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // String
                 String email = email_login.getText().toString().trim();
-                String email_link = email + "@gmail.com";
                 String pwd = pwd_login.getText().toString().trim();
 
                 if (email_login.getText().toString().length() == 0){
@@ -69,19 +68,12 @@ public class LoginActivity extends AppCompatActivity {
                 } // else if - pwd is empty
 
                 // 이메일과 페스워드를 통한 로그인방식
-                firebaseAuth.signInWithEmailAndPassword(email_link, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                firebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = firebaseAuth.getCurrentUser();
                                     if (user != null && user.isEmailVerified())
-                                    /*
-                                        현재 오류가 나고 강제 ShutDown이 발생하는 이유는 currentUser의 값이 Null이라서 그렇다.
-                                        오류명: Attempt to invoke virtual method 'boolean com.google.firebase.auth.FirebaseUser.isEmailVerified()' on a null object reference
-                                        로그인을 하고 있는 입장에서 로그인 하려는 계정의 이메일 인증상태를 물어보니 그런 것으로
-                                        1. 인증 창을 따로 구분한다.
-                                        2. 대체할 수 있는 isEmailVerified() 구문을 찾는다.
-                                    */
                                     {
                                         Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다!", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -90,10 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                     else if(user != null && !user.isEmailVerified())
                                     {
-                                        //FirebaseAuth.getInstance().signOut();
                                         Toast.makeText(getApplicationContext(), "이메일 인증 필요!", Toast.LENGTH_SHORT).show();
-                                        //currentUser.sendEmailVerification();
-                                        currentUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
@@ -102,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                                             }
                                         });
                                         firebaseAuth.signOut();
-                                        finish();
+//                                      finish();
                                     }
                                     else{
                                         Toast.makeText(getApplicationContext(), "CurrentUser is null!", Toast.LENGTH_SHORT).show();

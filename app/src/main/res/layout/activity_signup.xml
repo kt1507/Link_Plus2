@@ -26,9 +26,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:hint="ID 입력"
+            android:hint="Email 입력"
+            android:inputType="textEmailAddress"
             />
-        //android:inputType="textEmailAddress"
         <EditText
             android:id="@+id/sign_up_pwd"
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:layout_marginTop="50dp"
-            android:hint="닉네임 입력하기"
+            android:hint="이름 입력하기"
             />
         <EditText
             android:id="@+id/sign_up_number"

@@ -53,11 +53,14 @@ public class SignUpActivity extends AppCompatActivity {
 
                 //입력 정보 정보 가져옴
                 final String email = email_join.getText().toString().trim();
+                // email에서 ID String 추출
+                int idx = email_join.getText().toString().indexOf("@");
+                final String ID = email_join.getText().toString().substring(0,idx); // email에서 ID만 추출한 값
+
                 final String pwd = pwd_join.getText().toString().trim();
                 String pwd_check = pwd_check_join.getText().toString().trim();
                 final String name = name_join.getText().toString().trim();
                 final String number = number_join.getText().toString().trim();
-                final String email_link = email + "@gmail.com";
 
                 if (email_join.getText().toString().length() == 0){
                     Toast.makeText(SignUpActivity.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
@@ -85,7 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 if(pwd_join.getText().toString().equals(pwd_check_join.getText().toString())) {
-                    firebaseAuth.createUserWithEmailAndPassword(email_link, pwd).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
@@ -95,11 +98,11 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();
 
                                 /*firebase Database User information*/
-                                mRootRef.child(email).child("Email").setValue(email_link); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
-                                mRootRef.child(email).child("PassWord").setValue(pwd);
-                                mRootRef.child(email).child("ID").setValue(email);
-                                mRootRef.child(email).child("Name").setValue(name);
-                                mRootRef.child(email).child("Number").setValue(number);
+                                mRootRef.child(ID).child("Email").setValue(email); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
+                                mRootRef.child(ID).child("PassWord").setValue(pwd);
+                                mRootRef.child(ID).child("ID").setValue(ID);
+                                mRootRef.child(ID).child("Name").setValue(name);
+                                mRootRef.child(ID).child("Number").setValue(number);
                                 // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 finish();
                             }
@@ -114,59 +117,6 @@ public class SignUpActivity extends AppCompatActivity {
             } // onClick END
         }); // 버튼 onClickListener END
     } // onCreate END
-
-//    @IgnoreExtraProperties
-//    public class User {
-//        public String username;
-//        public String email;
-//
-//        public User() {
-//            // Default constructor required for calls to DataSnapshot.getValue(User.class)
-//        }
-//
-//        public User(String username, String email) {
-//            this.username = username;
-//            this.email = email;
-//        }
-//    }
-
-//    private void sendVerificationEmail(final String email, final String email_link, final String pwd, final String name, final String number)
-//    {
-//        currentUser.sendEmailVerification()
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            // email sent
-//                            Toast.makeText(getApplicationContext(), "이메일 전송이 완료되었습니다!\n확인 후 인증해주세요!", Toast.LENGTH_SHORT).show();
-//
-//                            // after email is sent just logout the user and finish this activity
-//                            FirebaseAuth.getInstance().signOut();
-//
-//                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-//                            startActivity(intent);
-//                            Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();
-//
-//                            /*firebase Database User information*/
-//                            mRootRef.child(email).child("Email").setValue(email_link); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
-//                            mRootRef.child(email).child("PassWord").setValue(pwd);
-//                            mRootRef.child(email).child("ID").setValue(email);
-//                            mRootRef.child(email).child("Name").setValue(name);
-//                            mRootRef.child(email).child("Number").setValue(number);
-//                            // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
-//                            finish();
-//                        }
-//                        else
-//                        {
-//                            // email not sent, so display message and restart the activity or do whatever you wish to do
-//                            Toast.makeText(getApplicationContext(), "이메일 전송에 실패하었습니다!\n확인 후 다시 회원가입을 해주세요!", Toast.LENGTH_SHORT).show();
-//                            finish();
-//                            //restart this activity
-//                        }
-//                    }
-//                });
-//    }
-
 } // public class END
 
 
