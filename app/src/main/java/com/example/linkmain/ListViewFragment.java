@@ -25,6 +25,14 @@ public class ListViewFragment extends Fragment {
         listview = (ListView) root.findViewById(R.id.listview);
         listview.setAdapter(adapter);
 
+        //db파일 테스트
+        StoreDBClass storeDBClass = new StoreDBClass();
+        storeDBClass.storedbclass();
+        for(int i = 0; i < 5; i++){
+            adapter.addItem(storeDBClass.store[i].getStorename(),storeDBClass.store[i].getPhone(),storeDBClass.store[i].getWorktime(),"주차 가능 여부 : X",getResources().getDrawable(R.mipmap.ic_launcher));
+        }
+        //adapter.addItem(storeDBClass.store[0].getStorename(),storeDBClass.store[0].getPhone(),storeDBClass.store[0].getWorktime(),"주차 가능 여부 : X", getResources().getDrawable(R.mipmap.ic_launcher));
+
         //adapter를 통해 자료 추가
         adapter.addItem("야무진", "042-638-0689~90", "8:30~17:30", "주차 가능 여부 : X", getResources().getDrawable(R.mipmap.ic_launcher));
         adapter.addItem("대남기공사", "042-626-4880", "07:00~18:00", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
