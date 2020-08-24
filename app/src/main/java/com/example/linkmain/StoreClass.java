@@ -2,6 +2,7 @@ package com.example.linkmain;
 
 public class StoreClass {
     private String storename;
+    private String categoly;
     private String address;
     private double point_x;
     private double point_y;
@@ -10,8 +11,9 @@ public class StoreClass {
     private String notworktime;
     private boolean parking;
 
-    public StoreClass(String storename, String address, double point_x, double point_y, String phone, String worktime, String notworktime, boolean parking) {
+    public StoreClass(String storename, String catrgoly, String address, double point_x, double point_y, String phone, String worktime, String notworktime, boolean parking) {
         this.storename = storename;
+        this.categoly = catrgoly;
         this.address = address;
         this.point_x = point_x;
         this.point_y = point_y;
@@ -23,6 +25,9 @@ public class StoreClass {
 
     public String getStorename() {
         return storename;
+    }
+    public String getCategoly(){
+        return categoly;
     }
     public String getAddress() {
         return address;
@@ -48,6 +53,9 @@ public class StoreClass {
 
     public void setStorename(String storename) {
         this.storename = storename;
+    }
+    public void setCategoly(String categoly){
+        this.categoly = categoly;
     }
     public void setAddress(String address) {
         this.address = address;
