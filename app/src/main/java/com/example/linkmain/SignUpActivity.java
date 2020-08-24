@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText pwd_check_join;
     private EditText name_join;
     private EditText number_join;
-    private Button btn;
+    private ImageButton btn;
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동;
     private FirebaseUser user = firebaseAuth.getCurrentUser(); // User 정보 ;
@@ -37,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.account_03_signup_02);
         getSupportActionBar().hide();
 
         email_join = (EditText) findViewById(R.id.sign_up_email);
@@ -45,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
         pwd_check_join = (EditText) findViewById(R.id.sign_up_pwd_check);
         name_join = (EditText) findViewById(R.id.sign_up_name);
         number_join = (EditText) findViewById(R.id.sign_up_number);
-        btn = (Button) findViewById(R.id.sign_up_btn);
+        btn = (ImageButton) findViewById(R.id.sign_up_btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

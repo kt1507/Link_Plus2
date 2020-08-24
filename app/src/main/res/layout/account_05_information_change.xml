@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="계정 정보 수정"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        >
+        <EditText
+            android:id="@+id/change_info_name"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="이름 입력하기"
+            android:textColorHint="#FFFFFF"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/darker_gray"-->
+<!--            android:text="____________________________________"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="-20dp"-->
+<!--            android:layout_marginBottom="30dp"-->
+            />
+
+        <EditText
+            android:id="@+id/change_info_number"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="전화번호 입력하기"
+            android:textColorHint="#FFFFFF"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/darker_gray"-->
+<!--            android:text="____________________________________"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="-20dp"-->
+<!--            android:layout_marginBottom="30dp"-->
+            />
+
+
+        <EditText
+            android:id="@+id/change_info_pw"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="비밀번호 입력하기"
+            android:textColorHint="#FFFFFF"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/darker_gray"-->
+<!--            android:text="____________________________________"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="-20dp"-->
+<!--            android:layout_marginBottom="30dp"-->
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="120dp"
+                    android:text="정보 수정 완료하기"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColorHint="#FFFFFF"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="__________________________"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-25dp"
+                    android:layout_marginBottom="10dp"
+                    />
+                <ImageButton
+                    android:id="@+id/change_info_save"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_button_circle"
+                    android:src="@drawable/ic_baseline_navigate_next_24"
+                    android:scaleType="fitCenter"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="120dp"
+                    android:text="회원탈퇴하기"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColorHint="#FFFFFF"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="__________________________"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-25dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/Delete_Btn"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_button_circle_r"
+                    android:src="@drawable/ic_baseline_navigate_next_24_r"
+                    android:scaleType="fitCenter"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

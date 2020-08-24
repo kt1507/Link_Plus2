@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="로그인"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical"
+        >
+        <EditText
+            android:id="@+id/main_email"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="Email 주소 입력"
+            android:gravity="center"
+            android:textColorHint="#FFFFFF"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
+            />
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/darker_gray"-->
+<!--            android:text="____________________________________"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="-12dp"-->
+<!--            android:layout_marginBottom="50dp"-->
+            />
+
+        <EditText
+            android:id="@+id/main_pwd"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="비밀번호 입력"
+            android:textColorHint="#FFFFFF"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
+            />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/darker_gray"-->
+<!--            android:text="____________________________________"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="-12dp"-->
+<!--            />-->
+
+        <ImageButton
+            android:id="@+id/main_login_btn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_button_circle"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:scaleType="fitCenter"
+            />
+
+        <Button
+            android:id="@+id/main_join_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/shape_button"
+            android:text="회원가입하기"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
