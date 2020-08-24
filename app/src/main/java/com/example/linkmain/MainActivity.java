@@ -102,49 +102,56 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
-//        // Btn - Delete
-//        DeleteBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // 팝업 창
-//                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                builder.setTitle("회원탈퇴");
-//                builder.setMessage("정말 회원을 탈퇴하시겠습니까?\n(확인 시 계정이 영구적으로 삭제됩니다)");
-//                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        // String 추출
-//                                        String email_D = user.getEmail();
-//                                        int idx = email_D.indexOf("@");
-//                                        final String email_OF = email_D.substring(0,idx);
-//                                        // DB 해당 계정정보 삭제
-//                                        mRootRef.child(email_OF).removeValue();
-//                                        Toast.makeText(MainActivity.this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show();
-//                                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-//                                        finish();
-//                                    }
-//                                });
-//                    }
-//                });
-//                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        Toast.makeText(MainActivity.this, "계정 삭제가 취소되었습니다.", Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//                builder.setNeutralButton("취소",null);
-//                builder.create().show();
-//            }
-//        });
+        // Btn - Delete
+        DeleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 팝업 창
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("회원탈퇴");
+                builder.setMessage("정말 회원을 탈퇴하시겠습니까?\n(확인 시 계정이 영구적으로 삭제됩니다)");
+                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        // String 추출
+                                        String email_D = user.getEmail();
+                                        int idx = email_D.indexOf("@");
+                                        final String email_OF = email_D.substring(0,idx);
+                                        // DB 해당 계정정보 삭제
+                                        mRootRef.child(email_OF).removeValue();
+                                        Toast.makeText(MainActivity.this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+                                        finish();
+                                    }
+                                });
+                    }
+                });
+                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "계정 삭제가 취소되었습니다.", Toast.LENGTH_LONG).show();
+                    }
+                });
+                builder.setNeutralButton("취소",null);
+                builder.create().show();
+            }
+        });
         // Btn - Info
         InfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "계정 정보로 이동합니다.", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
+                if(user == null) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    finish();
+                    Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "계정 정보로 이동합니다.", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
+                }
             }
         });
         // TextView - 사용자 로그인 상태에 따라 로그인 정보 출력.
