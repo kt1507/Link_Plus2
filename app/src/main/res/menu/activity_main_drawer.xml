@@ -44,11 +44,11 @@
         <item
             android:id="@+id/nav_cat7"
             android:icon="@drawable/pencil"
-            android:title="페인트|포장/접착|냉동" />
+            android:title="@string/category07" />
         <item
             android:id="@+id/nav_cat8"
             android:icon="@drawable/pencil"
-            android:title="자동차용품|운반기기|모터펌프" />
+            android:title="@string/category08" />
     </group>
     <group
         android:id="@+id/menu02"
