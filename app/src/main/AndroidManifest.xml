@@ -47,6 +47,8 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SignUpActivity"/>
         <activity android:name=".StoreInfoActivitiy"/>
+        <activity android:name=".UserInfoChangeActivity"/>
+        <activity android:name=".UserInfoActivity"/>
 
 
     </application>

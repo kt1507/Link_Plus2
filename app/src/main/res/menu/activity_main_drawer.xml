@@ -8,7 +8,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="모두 표시" />
+            android:title="@string/category_main" />
 <!--        <item-->
 <!--        android:id="@+id/nav_gallery"-->
 <!--        android:icon="@drawable/topnie"-->
@@ -20,27 +20,27 @@
         <item
             android:id="@+id/nav_cat1"
             android:icon="@drawable/topnie"
-            android:title="전기|조명|판넬" />
+            android:title="@string/category01" />
         <item
             android:id="@+id/nav_cat2"
             android:icon="@drawable/bosu"
-            android:title="소방|안전용품|청소용품" />
+            android:title="@string/category02" />
         <item
             android:id="@+id/nav_cat3"
             android:icon="@drawable/spanner"
-            android:title="공구|파이프|아크릴|목재" />
+            android:title="@string/category03" />
         <item
             android:id="@+id/nav_cat4"
             android:icon="@drawable/lightbulb"
-            android:title="철물|철공예|철망|볼트" />
+            android:title="@string/category04" />
         <item
             android:id="@+id/nav_cat5"
             android:icon="@drawable/car"
-            android:title="창호|장판|타일|보일러|천막" />
+            android:title="@string/category05" />
         <item
             android:id="@+id/nav_cat6"
             android:icon="@drawable/pencil"
-            android:title="닥트|간판|식당용품|진열대" />
+            android:title="@string/category06" />
         <item
             android:id="@+id/nav_cat7"
             android:icon="@drawable/pencil"
@@ -49,6 +49,19 @@
             android:id="@+id/nav_cat8"
             android:icon="@drawable/pencil"
             android:title="자동차용품|운반기기|모터펌프" />
+    </group>
+    <group
+        android:id="@+id/menu02"
+        android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/drawer_item_accout"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:title="나의 계정" />
+        <item
+            android:id="@+id/drawer_item_delete"
+            android:title="회원탈퇴"
+            />
     </group>
 
 
