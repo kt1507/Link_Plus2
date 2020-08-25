@@ -9,30 +9,46 @@
         <item
             android:id="@+id/nav_home"
             android:title="@string/category_main" />
+<!--        <item-->
+<!--        android:id="@+id/nav_gallery"-->
+<!--        android:icon="@drawable/topnie"-->
+<!--        android:title="전기|조명|판넬" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshow"-->
+<!--            android:icon="@drawable/bosu"-->
+<!--            android:title="소방|안전용품|청소용품" />-->
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_cat1"
             android:icon="@drawable/topnie"
             android:title="@string/category01" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_cat2"
             android:icon="@drawable/bosu"
             android:title="@string/category02" />
         <item
-            android:id="@+id/gonggu"
+            android:id="@+id/nav_cat3"
             android:icon="@drawable/spanner"
             android:title="@string/category03" />
         <item
-            android:id="@+id/jungu"
+            android:id="@+id/nav_cat4"
             android:icon="@drawable/lightbulb"
             android:title="@string/category04" />
         <item
-            android:id="@+id/car"
+            android:id="@+id/nav_cat5"
             android:icon="@drawable/car"
             android:title="@string/category05" />
         <item
-            android:id="@+id/mungu"
+            android:id="@+id/nav_cat6"
             android:icon="@drawable/pencil"
             android:title="@string/category06" />
+        <item
+            android:id="@+id/nav_cat7"
+            android:icon="@drawable/pencil"
+            android:title="페인트|포장/접착|냉동" />
+        <item
+            android:id="@+id/nav_cat8"
+            android:icon="@drawable/pencil"
+            android:title="자동차용품|운반기기|모터펌프" />
     </group>
     <group
         android:id="@+id/menu02"
