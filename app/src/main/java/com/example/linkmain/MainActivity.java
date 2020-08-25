@@ -65,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
         // nav_header_main 부분 onClick 이벤트 - 버튼으로 Layout 넘기기
         View headerView = navigationView.getHeaderView(0);
         Button loginBtn = (Button) headerView.findViewById(R.id.login_Btn_header); // Login Btn
+//        Button loginBtn2 = (Button) findViewById(R.id.drawer_item_accout);
         Button logoutBtn = (Button) headerView.findViewById(R.id.logout_Btn_header); // Logout Btn
         Button DeleteBtn = (Button) headerView.findViewById(R.id.Delete_Btn_header); // Delete Btn
         Button InfoBtn = (Button) headerView.findViewById(R.id.Info_btn); // Info Btn
-        final TextView textViewUserEmail = (TextView) headerView.findViewById(R.id.textview_email_header); // TextView UserEmail
+        final TextView textViewUserEmail = (TextView) headerView.findViewById(R.id.textview_address_header); // TextView UserEmail
 
         // Btn - login
         loginBtn.setOnClickListener(new View.OnClickListener() {

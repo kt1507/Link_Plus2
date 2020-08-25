@@ -34,6 +34,19 @@
             android:icon="@drawable/pencil"
             android:title="@string/category06" />
     </group>
+    <group
+        android:id="@+id/menu02"
+        android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/drawer_item_accout"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:title="나의 계정" />
+        <item
+            android:id="@+id/drawer_item_delete"
+            android:title="회원탈퇴"
+            />
+    </group>
 
 
 </menu>

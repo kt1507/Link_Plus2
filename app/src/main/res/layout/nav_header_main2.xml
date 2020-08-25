@@ -28,7 +28,6 @@
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:text="Info Btn"
-            android:textColor="@android:color/black"
             />
 
     </LinearLayout>

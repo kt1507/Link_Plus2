@@ -128,43 +128,43 @@
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-                <TextView
-                    android:layout_width="300dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="120dp"
-                    android:text="회원탈퇴하기"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="20sp"
-                    android:gravity="center"
-                    android:textColorHint="#FFFFFF"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/darker_gray"
-                    android:text="__________________________"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="-25dp"
-                    android:layout_marginBottom="10dp"
-                    />
+<!--            <LinearLayout-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_weight="1"-->
+<!--                >-->
+<!--                <TextView-->
+<!--                    android:layout_width="300dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginTop="120dp"-->
+<!--                    android:text="회원탈퇴하기"-->
+<!--                    android:textColor="@android:color/darker_gray"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textColorHint="#FFFFFF"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@android:color/darker_gray"-->
+<!--                    android:text="__________________________"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginTop="-25dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    />-->
 
-                <ImageButton
-                    android:id="@+id/Delete_Btn"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/shape_button_circle_r"
-                    android:src="@drawable/ic_baseline_navigate_next_24_r"
-                    android:scaleType="fitCenter"
-                    />
-            </LinearLayout>
+<!--                <ImageButton-->
+<!--                    android:id="@+id/Delete_Btn"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/shape_button_circle_r"-->
+<!--                    android:src="@drawable/ic_baseline_navigate_next_24_r"-->
+<!--                    android:scaleType="fitCenter"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

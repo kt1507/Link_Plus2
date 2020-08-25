@@ -50,7 +50,7 @@ public class UserInfoChangeActivity extends AppCompatActivity {
         change_pw = (EditText)findViewById(R.id.change_info_pw);
         change_Save_btn = (ImageButton)findViewById(R.id.change_info_save);
 //        change_cancel_btn = (Button)findViewById(R.id.change_info_cancel);
-        DeleteBtn = (ImageButton) findViewById(R.id.Delete_Btn); // Delete Btn
+//        DeleteBtn = (ImageButton) findViewById(R.id.Delete_Btn); // Delete Btn
 
         // 입력 정보 가져오기
 //        final String ID = change_ID.getText().toString();

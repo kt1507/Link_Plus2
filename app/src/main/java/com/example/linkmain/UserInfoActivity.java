@@ -49,7 +49,7 @@ public class UserInfoActivity extends AppCompatActivity {
         infoEmail = (TextView) findViewById(R.id.info_email);
 //        infoPassWord = (TextView) findViewById(R.id.info_pw);
         infoChangeBtn = (Button) findViewById(R.id.info_change_btn);
-        DeleteBtn = (Button)findViewById(R.id.main_delete_btn);
+//        DeleteBtn = (Button)findViewById(R.id.main_delete_btn);
         logoutBtn = (Button) findViewById(R.id.main_logout_btn); // Logout Btn
 
         // Database 정보 가져오기 - child 당 정보를 가져오려면 객체 하나씩 사용해야함.
