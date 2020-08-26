@@ -9,9 +9,9 @@ public class StoreClass {
     private String phone;
     private String worktime;
     private String notworktime;
-    private boolean parking;
+    private int parking;
 
-    public StoreClass(String storename, String catrgoly, String address, double point_x, double point_y, String phone, String worktime, String notworktime, boolean parking) {
+    public StoreClass(String storename, String catrgoly, String address, double point_x, double point_y, String phone, String worktime, String notworktime, int parking) {
         this.storename = storename;
         this.categoly = catrgoly;
         this.address = address;
@@ -47,7 +47,7 @@ public class StoreClass {
     public String getNotworktime() {
         return notworktime;
     }
-    public boolean isParking() {
+    public int isParking() {
         return parking;
     }
 
@@ -75,7 +75,7 @@ public class StoreClass {
     public void setNotworktime(String notworktime) {
         this.notworktime = notworktime;
     }
-    public void setParking(boolean parking) {
+    public void setParking(int parking) {
         this.parking = parking;
     }
 
