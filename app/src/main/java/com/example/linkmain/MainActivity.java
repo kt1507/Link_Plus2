@@ -124,15 +124,16 @@ public class MainActivity extends AppCompatActivity {
                     builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            // String 추출
+                            String email_D = user.getEmail();
+                            int idx = email_D.indexOf("@");
+                            final String email_OF = email_D.substring(0, idx);
+                            // DB 해당 계정정보 삭제
+                            mRootRef.child("UserInfo").child(email_OF).removeValue();
+
                             user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    // String 추출
-                                    String email_D = user.getEmail();
-                                    int idx = email_D.indexOf("@");
-                                    final String email_OF = email_D.substring(0, idx);
-                                    // DB 해당 계정정보 삭제
-                                    mRootRef.child("UserInfo").child(email_OF).removeValue();
                                     Toast.makeText(MainActivity.this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(MainActivity.this, MainActivity.class));
                                     finish();
