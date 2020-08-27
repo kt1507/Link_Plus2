@@ -14,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -25,16 +28,19 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.linkmain.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebase 연동;
@@ -70,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
         //  });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
 
         // nav_header_main 부분 onClick 이벤트 - 버튼으로 Layout 넘기기
         View headerView = navigationView.getHeaderView(0);
@@ -299,5 +312,41 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            Toast.makeText(this.getApplicationContext(),"home",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat1) {
+            Toast.makeText(this.getApplicationContext(),"cat1",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat2) {
+            Toast.makeText(this.getApplicationContext(),"cat2",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat3) {
+            Toast.makeText(this.getApplicationContext(),"cat3",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat4) {
+            Toast.makeText(this.getApplicationContext(),"cat4",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat5) {
+            Toast.makeText(this.getApplicationContext(),"cat5",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat6) {
+            Toast.makeText(this.getApplicationContext(),"cat6",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat7) {
+            Toast.makeText(this.getApplicationContext(),"cat7",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_cat8) {
+            Toast.makeText(this.getApplicationContext(),"cat8",Toast.LENGTH_SHORT).show();
+        }
+
+
+
+        //HomeFragment homeFragment = HomeFragment.sharecategory(category);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
