@@ -286,9 +286,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.action_listview:
-                startActivity(new Intent(MainActivity.this, ListViewActivity.class));
-                return true;
             case R.id.action_login:
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();

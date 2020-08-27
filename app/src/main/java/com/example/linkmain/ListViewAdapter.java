@@ -2,12 +2,10 @@ package com.example.linkmain;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,11 +13,11 @@ import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
 
-    private ImageView iconImageView;
+    //private ImageView iconImageView;
     private TextView store_nameTextView;
     private TextView phoneTextView;
     private TextView timeTextView;
-    private TextView parkingTextView;
+    private TextView categoryTextView;
 
     //Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
@@ -50,8 +48,8 @@ public class ListViewAdapter extends BaseAdapter {
         store_nameTextView = (TextView) convertView.findViewById(R.id.store_name);
         phoneTextView = (TextView) convertView.findViewById(R.id.phone);
         timeTextView = (TextView) convertView.findViewById(R.id.time);
-        parkingTextView = (TextView) convertView.findViewById(R.id.parking);
-        iconImageView = (ImageView) convertView.findViewById(R.id.image);
+        categoryTextView = (TextView) convertView.findViewById(R.id.category);
+        //iconImageView = (ImageView) convertView.findViewById(R.id.image);
 
         final ListViewItem listViewItem = listViewItemList.get(position);
 
@@ -59,8 +57,8 @@ public class ListViewAdapter extends BaseAdapter {
         store_nameTextView.setText(listViewItem.getStoreName());
         phoneTextView.setText(listViewItem.getPhone());
         timeTextView.setText(listViewItem.getTime());
-        parkingTextView.setText(listViewItem.getParking());
-        iconImageView.setImageDrawable(listViewItem.getIcon());
+        categoryTextView.setText(listViewItem.getCategoryStr());
+        //iconImageView.setImageDrawable(listViewItem.getIcon());
 
         LinearLayout listview = (LinearLayout)convertView.findViewById(R.id.shapeLayout);
         listview.setOnClickListener(new View.OnClickListener(){
@@ -69,8 +67,8 @@ public class ListViewAdapter extends BaseAdapter {
                 intent.putExtra("store_name", listViewItemList.get(pos).getStoreName());
                 intent.putExtra("phone",listViewItemList.get(pos).getPhone());
                 intent.putExtra("time",listViewItemList.get(pos).getTime());
-                intent.putExtra("parking",listViewItemList.get(pos).getParking());
-                intent.putExtra("image",iconImageView.getId());
+                //intent.putExtra("parking",listViewItemList.get(pos).getParking());
+                //intent.putExtra("image",iconImageView.getId());
 
                 context.startActivity(intent);
             }
@@ -92,14 +90,14 @@ public class ListViewAdapter extends BaseAdapter {
         return position;
     }
 
-    public void addItem(String store_name, String phone, String time, String parking, Drawable icon){
+    public void addItem(String store_name, String phone, String time, String category){
         ListViewItem item = new ListViewItem();
 
         item.setStoreName(store_name);
         item.setPhone(phone);
         item.setTime(time);
-        item.setParking(parking);
-        item.setIcon(icon);
+        item.setCategoryStr(category);
+        //item.setIcon(icon);
 
         listViewItemList.add(item);
     }
