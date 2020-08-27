@@ -24,6 +24,39 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//class AccessActivity extends AppCompatActivity{
+//    private Button login_btn;
+//    private Button signup_btn;
+//
+//    @Override
+//    protected void onCreate(Bundle saveInstanceState){
+//        super.onCreate(saveInstanceState);
+//        setContentView(R.layout.account_01_access);
+//
+//        login_btn = (Button)findViewById(R.id.access_login);
+//        signup_btn = (Button)findViewById(R.id.access_signup);
+//
+//        login_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(AccessActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        signup_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "회원가입 화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(AccessActivity.this, SignUpActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//    }
+//}
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button join;

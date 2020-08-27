@@ -50,8 +50,8 @@ public class ListViewAdapter extends BaseAdapter {
         store_nameTextView = (TextView) convertView.findViewById(R.id.store_name);
         phoneTextView = (TextView) convertView.findViewById(R.id.phone);
         timeTextView = (TextView) convertView.findViewById(R.id.time);
-        parkingTextView = (TextView) convertView.findViewById(R.id.parking);
-        iconImageView = (ImageView) convertView.findViewById(R.id.image);
+//        parkingTextView = (TextView) convertView.findViewById(R.id.parking);
+//        iconImageView = (ImageView) convertView.findViewById(R.id.image);
 
         final ListViewItem listViewItem = listViewItemList.get(position);
 
@@ -59,8 +59,8 @@ public class ListViewAdapter extends BaseAdapter {
         store_nameTextView.setText(listViewItem.getStoreName());
         phoneTextView.setText(listViewItem.getPhone());
         timeTextView.setText(listViewItem.getTime());
-        parkingTextView.setText(listViewItem.getParking());
-        iconImageView.setImageDrawable(listViewItem.getIcon());
+//        parkingTextView.setText(listViewItem.getParking());
+//        iconImageView.setImageDrawable(listViewItem.getIcon());
 
         LinearLayout listview = (LinearLayout)convertView.findViewById(R.id.shapeLayout);
         listview.setOnClickListener(new View.OnClickListener(){
@@ -69,8 +69,8 @@ public class ListViewAdapter extends BaseAdapter {
                 intent.putExtra("store_name", listViewItemList.get(pos).getStoreName());
                 intent.putExtra("phone",listViewItemList.get(pos).getPhone());
                 intent.putExtra("time",listViewItemList.get(pos).getTime());
-                intent.putExtra("parking",listViewItemList.get(pos).getParking());
-                intent.putExtra("image",iconImageView.getId());
+//                intent.putExtra("parking",listViewItemList.get(pos).getParking());
+//                intent.putExtra("image",iconImageView.getId());
 
                 context.startActivity(intent);
             }
@@ -98,8 +98,8 @@ public class ListViewAdapter extends BaseAdapter {
         item.setStoreName(store_name);
         item.setPhone(phone);
         item.setTime(time);
-        item.setParking(parking);
-        item.setIcon(icon);
+//        item.setParking(parking);
+//        item.setIcon(icon);
 
         listViewItemList.add(item);
     }

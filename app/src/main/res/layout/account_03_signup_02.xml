@@ -17,6 +17,7 @@
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:text="회원가입"
+        android:fontFamily="@font/gmarketsansttfbold"
         />
 
     <LinearLayout
@@ -30,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center"
             android:background="@drawable/shape_linear"
             >
@@ -45,6 +47,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="가입 정보 입력하기"
+                    android:fontFamily="@font/gmarketsansttfbold"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
@@ -56,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="(필수 기입 사항)"
+
                     android:textColor="@android:color/darker_gray"
                     android:layout_marginTop="-10dp"
                     />
@@ -141,7 +145,7 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:background="@drawable/shape_linear"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="50dp"
             >
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -155,6 +159,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="가입 정보 입력하기"
+                    android:fontFamily="@font/gmarketsansttfbold"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"

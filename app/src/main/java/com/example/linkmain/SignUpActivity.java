@@ -99,11 +99,11 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();
 
                                 /*firebase Database User information*/
-                                mRootRef.child(ID).child("Email").setValue(email); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
-                                mRootRef.child(ID).child("PassWord").setValue(pwd);
-                                mRootRef.child(ID).child("ID").setValue(ID);
-                                mRootRef.child(ID).child("Name").setValue(name);
-                                mRootRef.child(ID).child("Number").setValue(number);
+                                mRootRef.child("UserInfo").child(ID).child("Email").setValue(email); // 설명: database - [email] 하위 - "Email" 하위 - Data 값: [email_link]
+                                mRootRef.child("UserInfo").child(ID).child("PassWord").setValue(pwd);
+                                mRootRef.child("UserInfo").child(ID).child("ID").setValue(ID);
+                                mRootRef.child("UserInfo").child(ID).child("Name").setValue(name);
+                                mRootRef.child("UserInfo").child(ID).child("Number").setValue(number);
                                 // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
                                 finish();
                             }

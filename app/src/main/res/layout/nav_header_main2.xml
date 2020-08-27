@@ -1,94 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="15dp"
     android:background="@android:color/white"
     android:gravity="center"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp">
 
-<!--        <ImageView-->
-<!--            android:layout_width="60dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:src="@drawable/login_default"-->
-<!--            android:layout_gravity="center"/>-->
-        <Button
-            android:id="@+id/Info_btn"
+        >
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_button"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
-            android:text="Info Btn"
-            />
+            >
+            <ImageButton
+                android:id="@+id/Info_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_button_circle_black"
+                android:src="@drawable/login_default"
+                android:scaleType="fitCenter"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="계정정보 이동하기"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                />
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그인 계정 :   "
-                android:textSize="10dp" />
+                android:layout_marginTop="25dp"
+                android:text="로그인 계정"
+                android:textColor="@android:color/background_dark"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:textSize="17dp" />
             <TextView
                 android:id="@+id/textview_address_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#009688"
                 android:text=""
+                android:fontFamily="@font/gmarketsansttfbold"
                 android:textStyle="bold"
                 android:textSize="12dp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-        <Button
-            android:id="@+id/login_Btn_header"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:text="로그인"
-            android:textColor="#000000"
-            android:background="@drawable/shape_button"
-            android:layout_marginLeft="30dp"
-            />
-
-        <Button
-            android:id="@+id/logout_Btn_header"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:text="로그아웃"
-            android:textColor="#000000"
-            android:background="@drawable/shape_button"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
-
-        <Button
-            android:id="@+id/Delete_Btn_header"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:text="회원탈퇴"
-            android:textColor="#000000"
-            android:background="@drawable/shape_button"
-            android:layout_marginRight="30dp"/>
+            <Button
+                android:id="@+id/Delete_Btn_header"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:text="회원탈퇴"
+                android:textColor="#B80606"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_button"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="30dp"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 
-    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_weight="1"-->
+<!--        android:gravity="center"-->
+<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/login_Btn_header"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="로그인"-->
+<!--            android:textColor="#000000"-->
+<!--            android:background="@drawable/shape_button"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/logout_Btn_header"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="로그아웃"-->
+<!--            android:textColor="#000000"-->
+<!--            android:background="@drawable/shape_button"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"/>-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>
