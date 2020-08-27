@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="회원가입"
+        android:fontFamily="@font/gmarketsansttfbold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_linear"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/shape_linear2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="가입 정보 입력하기"
+                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="(필수 기입 사항)"
+
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_marginTop="-10dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#C3C0C0"
+                    android:text="_______________________________________________________"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-12dp"
+                    />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/sign_up_email"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:hint="Email 주소 입력"
+                android:gravity="center"
+                android:textColorHint="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                />
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@android:color/darker_gray"-->
+<!--                android:text="____________________________________"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="-12dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                />-->
+
+            <EditText
+                android:id="@+id/sign_up_pwd"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="비밀번호 입력"
+                android:textColorHint="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@android:color/darker_gray"-->
+<!--                android:text="____________________________________"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="-12dp"-->
+<!--                />-->
+            <EditText
+                android:id="@+id/sign_up_pwd_check"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="비밀번호 입력 확인"
+                android:textColorHint="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                />
+
+            <EditText
+                android:id="@+id/sign_up_name"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:hint="이름 입력"
+                android:gravity="center"
+                android:textColorHint="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                />
+
+            <EditText
+                android:id="@+id/sign_up_number"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="전화번호 입력"
+                android:textColorHint="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_linear"
+            android:layout_marginTop="20dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/shape_linear2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="공지사항"
+                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="(사업자 계정 신청 안내)"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_marginTop="-10dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#C3C0C0"
+                    android:text="_______________________________________________________"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-12dp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="사업자 계정을 가입하기 위해서는 \n오거리 개발팀으로 메일을 전송합니다!\n\n가입버튼 후 이메일 앱으로 즉시\n자동전환하여 메일을 전송하십시오."
+                android:textColor="@android:color/white"
+                android:textSize="13dp"
+                android:fontFamily="@font/gmarketsansttfbold"
+                />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/sign_up_btn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_button_circle"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:scaleType="fitCenter"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

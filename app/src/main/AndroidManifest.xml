@@ -50,6 +50,8 @@
         <activity android:name=".StoreInfoActivitiy"/>
         <activity android:name=".UserInfoChangeActivity"/>
         <activity android:name=".UserInfoActivity"/>
+        <activity android:name=".SignUpAccessActivity"/>
+        <activity android:name=".MasterSignUpActivity"/>
 
     </application>
 

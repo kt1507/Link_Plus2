@@ -143,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpAccessActivity.class);
                 startActivity(intent);
             }
         });
@@ -174,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "이메일이 전송되었습니다!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "이메일이 전송되었습니다!\n해당 계정의 메일을 확인하고 인증해주세요!", Toast.LENGTH_LONG).show();
                     }
                 }
             });
