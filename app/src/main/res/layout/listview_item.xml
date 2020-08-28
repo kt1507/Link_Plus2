@@ -24,7 +24,7 @@
 
 <!--     레이아웃 디자인 수정 - 종태 [08.27] -->
             <LinearLayout
-                android:background="@drawable/shape_linear3"
+                android:background="@drawable/shape_linear5"
                 android:id="@+id/shapeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

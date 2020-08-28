@@ -28,7 +28,7 @@ public class SignUpAccessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_03_signup_01);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         NormalUser = (Button)findViewById(R.id.signup_access_normal);
         MasterUser = (Button)findViewById(R.id.signup_access_master);

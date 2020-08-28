@@ -2,6 +2,8 @@ package com.example.linkmain;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,8 +70,29 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 //        getSupportActionBar().hide();
 
+
+        // ToolBar Setting
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+//        getSupportActionBar().hide(); // Toolbar 제거하기
+
+        // Toolbar Menu Icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Toolbar Text Delete
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Toolbar 로고 삽입
+        getSupportActionBar().setLogo(R.drawable.logo01);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setElevation(200);
+
+
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_camera);
+//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF"))); // Toolbar 색상변경
+//        getSupportActionBar().setIcon(R.drawable.logo01); // Toolbar 이미지 삽입
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -278,19 +301,19 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        /*Animbutton = findViewById(R.id.button);
-
-        // 버튼 클릭 이벤트 처리
-        Animbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isPageOpen) { //페이지 열려있으면
-                    page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
-                } else { //페이지 닫혀있으면
-                    page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
-                }
-            }
-        });*/
+//        Animbutton = findViewById(R.id.button);
+//
+//        // 버튼 클릭 이벤트 처리
+//        Animbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (isPageOpen) { //페이지 열려있으면
+//                    page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
+//                } else { //페이지 닫혀있으면
+//                    page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -300,17 +323,17 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    // Option Item (상단 바)
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.action_login:
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    // Option Item (상단 바)
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        switch (item.getItemId()){
+//            case R.id.store_info_toolbar_icon:
+//                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {

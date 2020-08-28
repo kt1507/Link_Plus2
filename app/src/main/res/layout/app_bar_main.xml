@@ -7,30 +7,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:background="#FFFFFF"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:background="@drawable/shape_toolbar"
+            android:elevation="0dp"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:src="@drawable/logo01"-->
+            <!--                android:scaleType="fitCenter"-->
+            <!--                />-->
+
+
+        </androidx.appcompat.widget.Toolbar>
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="30dp"
-        app:srcCompat="@drawable/ic_baseline_dehaze_24"
-        android:tint="@android:color/white"
-        android:backgroundTint="@android:color/holo_purple"
-        />
-    <!--    /* Floating Action Button-->
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="30dp"
+            app:srcCompat="@drawable/ic_baseline_dehaze_24"
+            android:tint="@android:color/white"
+            android:backgroundTint="@android:color/holo_purple"
+            />
+        <!--    /* Floating Action Button-->
     <!--    기본값 = layout_margin : @dimen/fab_margin-->
     <!--    android:backgroundTint : 버튼 색을 변경-->
     <!--    android:src : 버튼 안에 아이콘 넣을 때 사용-->
@@ -39,6 +57,9 @@
     <!--    */-->
 
 
-    <include layout="@layout/content_main" />
+    <include
+        layout="@layout/content_main"
+
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

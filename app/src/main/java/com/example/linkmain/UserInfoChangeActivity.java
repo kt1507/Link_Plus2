@@ -42,7 +42,7 @@ public class UserInfoChangeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_05_information_change);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         change_name = (EditText)findViewById(R.id.change_info_name);
         change_number = (EditText)findViewById(R.id.change_info_number);

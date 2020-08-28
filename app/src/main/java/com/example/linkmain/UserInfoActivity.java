@@ -42,7 +42,7 @@ public class UserInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_04_information);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         infoName = (TextView) findViewById(R.id.info_name);
         infoNumber = (TextView) findViewById(R.id.info_number);

@@ -1,7 +1,10 @@
 package com.example.linkmain;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,11 +20,13 @@ public class StoreInfoActivitiy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_info);
+//        getSupportActionBar().hide();
 
         TextView store_nameTextView = (TextView)findViewById(R.id.store_name);
         TextView phoneTextView = (TextView)findViewById(R.id.phone);
         TextView timeTextView = (TextView)findViewById(R.id.time);
         TextView parkingTextView = (TextView)findViewById(R.id.parking);
+        ImageButton back_btn = (ImageButton)findViewById(R.id.info_back_btn);
 
         Intent intent = getIntent();
 
@@ -32,6 +37,13 @@ public class StoreInfoActivitiy extends AppCompatActivity {
 
         //Adapter 생성
         adapter = new StoreInfoAdapter();
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         //리스트뷰 참조 및 Adapter 달기
         listview = (ListView) findViewById(R.id.product_listview);

@@ -35,7 +35,7 @@ public class MasterSignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_03_signup_03);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         email_join = (EditText) findViewById(R.id.sign_up_email);
         pwd_join = (EditText) findViewById(R.id.sign_up_pwd);
