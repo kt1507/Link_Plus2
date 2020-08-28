@@ -70,7 +70,7 @@ public class UserInfoChangeActivity extends AppCompatActivity {
                 Map<String,Object> taskMap = new HashMap<String, Object>();
 //                taskMap.put(email_OF+"/ID", change_ID.getText().toString());
                 if(change_pw.getText().toString().length() != 0){
-                    taskMap.put(email_OF+"/PassWord",change_pw.getText().toString());
+                    taskMap.put("/UserInfo/" + email_OF + "/PassWord", change_pw.getText().toString());
                     // FirebaseAuth Password 변경
                     currentUser.updatePassword(change_pw.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -80,10 +80,10 @@ public class UserInfoChangeActivity extends AppCompatActivity {
                     });
                 }
                 if(change_name.getText().toString().length() != 0) {
-                    taskMap.put(email_OF + "/Name", change_name.getText().toString());
+                    taskMap.put("/UserInfo/"+ email_OF + "/Name", change_name.getText().toString());
                 }
                 if(change_number.getText().toString().length() != 0) {
-                    taskMap.put(email_OF + "/Number", change_number.getText().toString());
+                    taskMap.put("/UserInfo/"+ email_OF + "/Number", change_number.getText().toString());
                 }
                 mRootRef.updateChildren(taskMap);
 

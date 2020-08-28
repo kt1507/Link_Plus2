@@ -15,11 +15,11 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp">
 
-<!--        <ImageView-->
-<!--            android:layout_width="60dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:src="@drawable/login_default"-->
-<!--            android:layout_gravity="center"/>-->
+        <!--        <ImageView-->
+        <!--            android:layout_width="60dp"-->
+        <!--            android:layout_height="60dp"-->
+        <!--            android:src="@drawable/login_default"-->
+        <!--            android:layout_gravity="center"/>-->
         <Button
             android:id="@+id/Info_btn"
             android:layout_width="wrap_content"
@@ -28,7 +28,6 @@
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:text="Info Btn"
-            android:textColor="@android:color/black"
             />
 
     </LinearLayout>
@@ -38,19 +37,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="로그인 계정 :   "
-                android:textSize="10dp" />
-            <TextView
-                android:id="@+id/textview_address_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#009688"
-                android:text=""
-                android:textStyle="bold"
-                android:textSize="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인 계정 :   "
+            android:textSize="10dp" />
+        <TextView
+            android:id="@+id/textview_address_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="12dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,4 +91,4 @@
 
     </LinearLayout>
 
-    </LinearLayout>
+</LinearLayout>

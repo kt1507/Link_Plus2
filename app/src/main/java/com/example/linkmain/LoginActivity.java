@@ -24,6 +24,39 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//class AccessActivity extends AppCompatActivity{
+//    private Button login_btn;
+//    private Button signup_btn;
+//
+//    @Override
+//    protected void onCreate(Bundle saveInstanceState){
+//        super.onCreate(saveInstanceState);
+//        setContentView(R.layout.account_01_access);
+//
+//        login_btn = (Button)findViewById(R.id.access_login);
+//        signup_btn = (Button)findViewById(R.id.access_signup);
+//
+//        login_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(AccessActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        signup_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "회원가입 화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(AccessActivity.this, SignUpActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//    }
+//}
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button join;
@@ -110,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpAccessActivity.class);
                 startActivity(intent);
             }
         });
@@ -141,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "이메일이 전송되었습니다!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "이메일이 전송되었습니다!\n해당 계정의 메일을 확인하고 인증해주세요!", Toast.LENGTH_LONG).show();
                     }
                 }
             });

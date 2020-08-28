@@ -59,7 +59,7 @@ public class ListViewAdapter extends BaseAdapter {
         timeTextView.setText(listViewItem.getTime());
         categoryTextView.setText(listViewItem.getCategoryStr());
         //iconImageView.setImageDrawable(listViewItem.getIcon());
-
+      
         LinearLayout listview = (LinearLayout)convertView.findViewById(R.id.shapeLayout);
         listview.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -98,7 +98,7 @@ public class ListViewAdapter extends BaseAdapter {
         item.setTime(time);
         item.setCategoryStr(category);
         //item.setIcon(icon);
-
+      
         listViewItemList.add(item);
     }
 

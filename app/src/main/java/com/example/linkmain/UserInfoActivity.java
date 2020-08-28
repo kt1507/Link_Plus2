@@ -79,7 +79,7 @@ public class UserInfoActivity extends AppCompatActivity {
 //
 //            }
 //        });
-            mRootRef.child(email_OF).child("Name").addValueEventListener(new ValueEventListener() {
+            mRootRef.child("UserInfo").child(email_OF).child("Name").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Log.d("UserinfoActivity", "ValueEventListener : " + snapshot.getValue());
@@ -91,7 +91,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
                 }
             });
-            mRootRef.child(email_OF).child("Number").addValueEventListener(new ValueEventListener() {
+            mRootRef.child("UserInfo").child(email_OF).child("Number").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Log.d("UserinfoActivity", "ValueEventListener : " + snapshot.getValue());
@@ -103,7 +103,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
                 }
             });
-            mRootRef.child(email_OF).child("Email").addValueEventListener(new ValueEventListener() {
+            mRootRef.child("UserInfo").child(email_OF).child("Email").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Log.d("UserinfoActivity", "ValueEventListener : " + snapshot.getValue());
