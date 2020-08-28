@@ -2,18 +2,18 @@ package com.example.linkmain;
 
 public class StoreClass {
     private String storename;
-    private String categoly;
+    private String category;
     private String address;
     private double point_x;
     private double point_y;
     private String phone;
     private String worktime;
     private String notworktime;
-    private boolean parking;
+    private int parking;
 
-    public StoreClass(String storename, String catrgoly, String address, double point_x, double point_y, String phone, String worktime, String notworktime, boolean parking) {
+    public StoreClass(String storename, String catrgory, String address, double point_x, double point_y, String phone, String worktime, String notworktime, int parking) {
         this.storename = storename;
-        this.categoly = catrgoly;
+        this.category = catrgory;
         this.address = address;
         this.point_x = point_x;
         this.point_y = point_y;
@@ -26,8 +26,8 @@ public class StoreClass {
     public String getStorename() {
         return storename;
     }
-    public String getCategoly(){
-        return categoly;
+    public String getCategory(){
+        return category;
     }
     public String getAddress() {
         return address;
@@ -47,15 +47,15 @@ public class StoreClass {
     public String getNotworktime() {
         return notworktime;
     }
-    public boolean isParking() {
+    public int getParking() {
         return parking;
     }
 
     public void setStorename(String storename) {
         this.storename = storename;
     }
-    public void setCategoly(String categoly){
-        this.categoly = categoly;
+    public void setCategory(String category){
+        this.category = category;
     }
     public void setAddress(String address) {
         this.address = address;
@@ -75,7 +75,7 @@ public class StoreClass {
     public void setNotworktime(String notworktime) {
         this.notworktime = notworktime;
     }
-    public void setParking(boolean parking) {
+    public void setParking(int parking) {
         this.parking = parking;
     }
 

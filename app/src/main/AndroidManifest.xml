@@ -44,7 +44,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ListViewActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SignUpActivity"/>
         <activity android:name=".StoreInfoActivitiy"/>
