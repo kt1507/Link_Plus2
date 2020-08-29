@@ -3,7 +3,6 @@ package com.example.linkmain;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -13,16 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.IgnoreExtraProperties;
 
-public class SignUpActivity extends AppCompatActivity {
+public class MasterSignUpActivity extends AppCompatActivity {
     private EditText email_join;
     private EditText pwd_join;
     private EditText pwd_check_join;
@@ -38,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_03_signup_02);
+        setContentView(R.layout.account_03_signup_03);
 //        getSupportActionBar().hide();
 
         email_join = (EditText) findViewById(R.id.sign_up_email);
@@ -64,23 +60,23 @@ public class SignUpActivity extends AppCompatActivity {
                 final String number = number_join.getText().toString().trim();
 
                 if (email_join.getText().toString().length() == 0){
-                    Toast.makeText(SignUpActivity.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MasterSignUpActivity.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
                     email_join.requestFocus();
                     return;
                 } // else if - email is empty
                 /* 존재하는 email 처리 (FirebaseAuthUserCollisionException) */
                 if (pwd_join.getText().toString().length() == 0){
-                    Toast.makeText(SignUpActivity.this, "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MasterSignUpActivity.this, "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
                     pwd_join.requestFocus();
                     return;
                 } // else if - pwd is empty
                 if (pwd_check_join.getText().toString().length() == 0){
-                    Toast.makeText(SignUpActivity.this, "비밀번호 확인란을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MasterSignUpActivity.this, "비밀번호 확인란을 입력하세요.", Toast.LENGTH_SHORT).show();
                     pwd_check_join.requestFocus();
                     return;
                 } // else if -pwd check is empty
                 if (!pwd_join.getText().toString().equals(pwd_check_join.getText().toString())){
-                    Toast.makeText(SignUpActivity.this, "입력하신 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MasterSignUpActivity.this, "입력하신 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                     pwd_join.setText("");
                     pwd_check_join.setText("");
                     pwd_join.requestFocus();
@@ -89,12 +85,12 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 if(pwd_join.getText().toString().equals(pwd_check_join.getText().toString())) {
-                    firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(MasterSignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 //                                sendVerificationEmail(email, email_link, pwd, name, number);
-                                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                Intent intent = new Intent(MasterSignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), "회원가입이 성공적으로 처리되었습니다.\n", Toast.LENGTH_SHORT).show();
 
@@ -104,11 +100,22 @@ public class SignUpActivity extends AppCompatActivity {
                                 mRootRef.child("UserInfo").child(ID).child("ID").setValue(ID);
                                 mRootRef.child("UserInfo").child(ID).child("Name").setValue(name);
                                 mRootRef.child("UserInfo").child(ID).child("Number").setValue(number);
-                                // overridePendingTransition(FADE_IN_ANIMATION, FADE_OUT_ANIMATION); // 슬라이딩 애니메이션 화면전환 사용시 사용
+                                mRootRef.child("UserInfo").child(ID).child("Master").setValue("Master-Un-Authentication");
+
+                                String emailValue = "Email: " + email + "\n" + "ID: " + ID + "\n" + "이름: " + name + "\n" + "전화번호: " + number + "\n";
+
+                                Intent email = new Intent(Intent.ACTION_SEND);
+                                email.setType("plain/Text");
+                                String[] address = {"20160720@gm.hannam.ac.kr"};
+                                email.putExtra(Intent.EXTRA_EMAIL, address);
+                                email.putExtra(Intent.EXTRA_SUBJECT,"오거리 사업자 계정 신청");
+                                email.putExtra(Intent.EXTRA_TEXT, "어플리케이션 [오거리] 사업자 계정 신청\n" + emailValue);
+                                startActivity(email);
+
                                 finish();
                             }
                             else {
-                                Toast.makeText(SignUpActivity.this, "이메일 양식을 지켜주세요", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MasterSignUpActivity.this, "이메일 양식을 지켜주세요", Toast.LENGTH_SHORT).show();
                                 email_join.requestFocus();
                                 return;
                             } // else - email 입력형식 오류

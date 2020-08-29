@@ -2,18 +2,22 @@ package com.example.linkmain;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +42,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -47,7 +52,6 @@ public class MainActivity extends AppCompatActivity
     private FirebaseUser user = firebaseAuth.getCurrentUser(); // User 정보 ;
     private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); // Database 연동
     private FirebaseUser currentUser = firebaseAuth.getCurrentUser();; // 현재 유져
-    //public DatabaseReference conditionRef = mRootRef.child("text"); // Database 연동
 
 
     //숨겨진 페이지가 열렸는지 체크
@@ -64,16 +68,32 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        getSupportActionBar().hide();
+
+
+        // ToolBar Setting
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //FloatingActionButton fab = findViewById(R.id.fab);
-        //fab.setOnClickListener(new View.OnClickListener() {
-        //     @Override
-        //     public void onClick(View view) {
-        //          Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        //                   .setAction("Action", null).show();
-        //      }
-        //  });
+//        getSupportActionBar().hide(); // Toolbar 제거하기
+
+        // Toolbar Menu Icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Toolbar Text Delete
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Toolbar 로고 삽입
+        getSupportActionBar().setLogo(R.drawable.logo01);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setElevation(200);
+
+
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_camera);
+//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF"))); // Toolbar 색상변경
+//        getSupportActionBar().setIcon(R.drawable.logo01); // Toolbar 이미지 삽입
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -84,29 +104,30 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
 
+
         // nav_header_main 부분 onClick 이벤트 - 버튼으로 Layout 넘기기
         View headerView = navigationView.getHeaderView(0);
         Button loginBtn = (Button) headerView.findViewById(R.id.login_Btn_header); // Login Btn
 //        Button loginBtn2 = (Button) findViewById(R.id.drawer_item_accout);
         Button logoutBtn = (Button) headerView.findViewById(R.id.logout_Btn_header); // Logout Btn
         Button DeleteBtn = (Button) headerView.findViewById(R.id.Delete_Btn_header); // Delete Btn
-        Button InfoBtn = (Button) headerView.findViewById(R.id.Info_btn); // Info Btn
+        ImageButton InfoBtn = (ImageButton) headerView.findViewById(R.id.Info_btn); // Info Btn
         final TextView textViewUserEmail = (TextView) headerView.findViewById(R.id.textview_address_header); // TextView UserEmail
 
-        // Btn - login
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(firebaseAuth.getCurrentUser() != null){ //만약 이미 로그인되어있다면
-                    Toast.makeText(getApplicationContext(), "이미 로그인되었습니다!", Toast.LENGTH_SHORT).show();
-                }
-                else{ //로그인 정보가 없는 경우
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                    finish();
-                    Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        // Btn - login
+//        loginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(firebaseAuth.getCurrentUser() != null){ //만약 이미 로그인되어있다면
+//                    Toast.makeText(getApplicationContext(), "이미 로그인되었습니다!", Toast.LENGTH_SHORT).show();
+//                }
+//                else{ //로그인 정보가 없는 경우
+//                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//                    finish();
+//                    Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 //        // Btn - LogOut
 //        logoutBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -129,37 +150,44 @@ public class MainActivity extends AppCompatActivity
         DeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 팝업 창
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("회원탈퇴");
-                builder.setMessage("정말 회원을 탈퇴하시겠습니까?\n(확인 시 계정이 영구적으로 삭제됩니다)");
-                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        // String 추출
-                                        String email_D = user.getEmail();
-                                        int idx = email_D.indexOf("@");
-                                        final String email_OF = email_D.substring(0,idx);
-                                        // DB 해당 계정정보 삭제
-                                        mRootRef.child(email_OF).removeValue();
-                                        Toast.makeText(MainActivity.this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-                                        finish();
-                                    }
-                                });
-                    }
-                });
-                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "계정 삭제가 취소되었습니다.", Toast.LENGTH_LONG).show();
-                    }
-                });
-                builder.setNeutralButton("취소",null);
-                builder.create().show();
+                if (firebaseAuth.getCurrentUser() != null) { //만약 이미 로그인되어있다면
+                    // 팝업 창
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("회원탈퇴");
+                    builder.setMessage("정말 회원을 탈퇴하시겠습니까?\n(확인 시 계정이 영구적으로 삭제됩니다)");
+                    builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // String 추출
+                            String email_D = user.getEmail();
+                            int idx = email_D.indexOf("@");
+                            final String email_OF = email_D.substring(0, idx);
+                            // DB 해당 계정정보 삭제
+                            mRootRef.child("UserInfo").child(email_OF).removeValue();
+
+                            user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(MainActivity.this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                                    finish();
+                                }
+                            });
+                        }
+                    });
+                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(MainActivity.this, "계정 삭제가 취소되었습니다.", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    builder.setNeutralButton("취소", null);
+                    builder.create().show();
+                }
+                else{//로그인 정보가 없는 경우
+                    Toast.makeText(getApplicationContext(), "현재 로그인 정보가 없습니다!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                }
             }
         });
         // Btn - Info
@@ -258,8 +286,8 @@ public class MainActivity extends AppCompatActivity
         });
 
         // Action Button - 스크롤뷰 진입
-        FloatingActionButton fab_1 = findViewById(R.id.fab);
-        fab_1.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab1);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "리스트 뷰 올라와서 활성화", Snackbar.LENGTH_LONG).setAction("Action", null).show();
@@ -273,19 +301,19 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        /*Animbutton = findViewById(R.id.button);
-
-        // 버튼 클릭 이벤트 처리
-        Animbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isPageOpen) { //페이지 열려있으면
-                    page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
-                } else { //페이지 닫혀있으면
-                    page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
-                }
-            }
-        });*/
+//        Animbutton = findViewById(R.id.button);
+//
+//        // 버튼 클릭 이벤트 처리
+//        Animbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (isPageOpen) { //페이지 열려있으면
+//                    page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
+//                } else { //페이지 닫혀있으면
+//                    page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -295,17 +323,17 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    // Option Item (상단 바)
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.action_login:
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    // Option Item (상단 바)
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        switch (item.getItemId()){
+//            case R.id.store_info_toolbar_icon:
+//                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {

@@ -15,6 +15,7 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:text="어서오세요!"
+        android:fontFamily="@font/gmarketsansttfbold"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,8 +31,10 @@
             android:textStyle="bold"
             android:textSize="32dp"
             android:textColor="#848285"
+            android:fontFamily="@font/gmarketsansttfbold"
             />
         <Button
+            android:id="@+id/access_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -40,6 +43,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             android:background="@drawable/shape_button"
+            android:fontFamily="@font/gmarketsansttfbold"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -59,8 +63,10 @@
             android:textStyle="bold"
             android:textSize="32dp"
             android:textColor="#848285"
+            android:fontFamily="@font/gmarketsansttfbold"
             />
         <Button
+            android:id="@+id/access_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -69,6 +75,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             android:background="@drawable/shape_button"
+            android:fontFamily="@font/gmarketsansttfbold"
             />
         <TextView
             android:layout_width="wrap_content"

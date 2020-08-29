@@ -11,7 +11,7 @@
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:orientation="vertical"
@@ -20,21 +20,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/info_back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_linear5"
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+            android:scaleType="fitCenter"
+            android:layout_gravity="start"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가게 정보"
+            android:fontFamily="@font/gmarketsansttfbold"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            />
+
         <LinearLayout
             android:id="@+id/shapeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/shape_linear5">
 
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="TODO" />
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -49,38 +72,67 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingTop="10dp"
-                    android:text="테스트입니다."
-                    android:textSize="20dp" />
+                    android:text="가게 이름"
+                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:text="테스트입니다." />
+                    android:text="가게 번호"
+                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp"
+                    />
 
                 <TextView
                     android:id="@+id/time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="테스트입니다." />
+                    android:text="영업시간"
+                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp"
+                    />
 
                 <TextView
                     android:id="@+id/parking"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="테스트입니다." />
+                    android:text="주차가능여부"
+                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp"
+                    />
             </LinearLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="물품 리스트"
+            android:fontFamily="@font/gmarketsansttfbold"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            />
 
         <ListView
             android:id="@+id/product_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
