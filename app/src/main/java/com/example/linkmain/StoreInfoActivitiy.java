@@ -1,10 +1,12 @@
 package com.example.linkmain;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,13 +29,25 @@ public class StoreInfoActivitiy extends AppCompatActivity {
         TextView timeTextView = (TextView)findViewById(R.id.time);
         TextView parkingTextView = (TextView)findViewById(R.id.parking);
         ImageButton back_btn = (ImageButton)findViewById(R.id.info_back_btn);
+        ImageView store_pictureView = (ImageView)findViewById(R.id.image);
 
         Intent intent = getIntent();
 
         store_nameTextView.setText((String)intent.getExtras().get("store_name"));
         phoneTextView.setText((String)intent.getExtras().get("phone"));
         timeTextView.setText((String)intent.getExtras().get("time"));
-        parkingTextView.setText((String)intent.getExtras().get("parking"));
+
+        int parking = (int) intent.getExtras().get("parking");
+        parkingTextView.setText("주차 가능 : " + String.valueOf(parking) + "대");
+
+        int store_picture = (int) intent.getExtras().get("store_picture");
+        String store_picture_string;
+        if(store_picture == 0){
+            store_pictureView.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }
+        else{
+            store_pictureView.setImageDrawable(getResources().getDrawable(store_picture));
+        }
 
         //Adapter 생성
         adapter = new StoreInfoAdapter();

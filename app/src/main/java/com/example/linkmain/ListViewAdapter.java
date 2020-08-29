@@ -67,8 +67,8 @@ public class ListViewAdapter extends BaseAdapter {
                 intent.putExtra("store_name", listViewItemList.get(pos).getStoreName());
                 intent.putExtra("phone",listViewItemList.get(pos).getPhone());
                 intent.putExtra("time",listViewItemList.get(pos).getTime());
-                //intent.putExtra("parking",listViewItemList.get(pos).getParking());
-                //intent.putExtra("image",iconImageView.getId());
+                intent.putExtra("parking",listViewItemList.get(pos).getParking());
+                intent.putExtra("store_picture",listViewItemList.get(pos).getStorepicture());
 
                 context.startActivity(intent);
             }
@@ -90,13 +90,15 @@ public class ListViewAdapter extends BaseAdapter {
         return position;
     }
 
-    public void addItem(String store_name, String phone, String time, String category){
+    public void addItem(String store_name, String phone, String time, String category, int parking, int storepicture){
         ListViewItem item = new ListViewItem();
 
         item.setStoreName(store_name);
         item.setPhone(phone);
         item.setTime(time);
         item.setCategoryStr(category);
+        item.setParking(parking);
+        item.setStorepicture(storepicture);
         //item.setIcon(icon);
       
         listViewItemList.add(item);

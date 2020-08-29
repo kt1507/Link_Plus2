@@ -37,8 +37,7 @@ public class ListViewFragment extends Fragment {
         StoreDBClass storeDBClass = new StoreDBClass();
         storeDBClass.storedbclass();
         for(int i = 0; i < 67; i++){
-            adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory());
-
+            adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
         }
         //adapter.addItem(storeDBClass.store[0].getStorename(),storeDBClass.store[0].getPhone(),storeDBClass.store[0].getWorktime(),"주차 가능 여부 : X", getResources().getDrawable(R.mipmap.ic_launcher));
 
