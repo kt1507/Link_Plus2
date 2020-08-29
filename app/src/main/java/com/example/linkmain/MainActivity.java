@@ -272,7 +272,8 @@ public class MainActivity extends AppCompatActivity
             public void onAnimationEnd(Animation animation) {
                 page.setVisibility(View.INVISIBLE); //페이지 슬라이딩 끝난 후 페이지 안보이게
                 //페이지 다 닫기고 버튼 글자 변경 및 isPageOpen 변수 값 변경
-
+                FloatingActionButton fab = findViewById(R.id.fab1);
+                fab.show();
             }
 
             @Override
