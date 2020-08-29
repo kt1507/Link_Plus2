@@ -189,6 +189,55 @@ public class Cat3Fragment extends Fragment implements OnMapReadyCallback {
                 .title("금성종합상사")
                 .snippet("공구")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu14 = new LatLng(36.353920, 127.408853);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu14)
+                .title("금강종합상사")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu15 = new LatLng(36.349964,127.413610);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu15)
+                .title("경보상사")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu16 = new LatLng(36.349424, 127.414688);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu16)
+                .title("현대로프상사")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu17 = new LatLng(36.351932,127.411006);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu17)
+                .title("오정공구")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu18 = new LatLng(36.352339,127.410999);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu18)
+                .title("삼원공구")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu19 = new LatLng(36.354431, 127.407752);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu19)
+                .title("계양전동공구")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        LatLng gongu20 = new LatLng(36.349118,127.415014);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gongu20)
+                .title("한양종합상가")
+                .snippet("공구")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+
+        LatLng pipec1 = new LatLng(36.349835,127.414082);
+        googleMap.addMarker(new MarkerOptions()
+                .position(pipec1)
+                .title("선광자동밸브")
+                .snippet("파이프")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
 
 
     }

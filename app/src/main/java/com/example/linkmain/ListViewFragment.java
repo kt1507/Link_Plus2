@@ -9,11 +9,15 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.linkmain.ui.cat1.Cat1ViewModel;
+
 public class ListViewFragment extends Fragment {
 
     private ListView listview;
     private ListViewAdapter adapter;
+    private Cat1ViewModel cat1ViewModel;
     //private String navibar_category = null;
+    private String category = null;
 
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

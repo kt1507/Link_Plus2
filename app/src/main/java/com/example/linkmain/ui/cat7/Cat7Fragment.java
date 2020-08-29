@@ -110,6 +110,18 @@ public class Cat7Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         //하드코딩하세영!
+        LatLng paint1 = new LatLng(36.349975,127.413764);
+        googleMap.addMarker(new MarkerOptions()
+                .position(paint1)
+                .title("제비표페인트")
+                .snippet("페인트")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+        LatLng paint2 = new LatLng(36.350471, 127.413578);
+        googleMap.addMarker(new MarkerOptions()
+                .position(paint2)
+                .title("페인트마트")
+                .snippet("페인트")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
 
         LatLng pojan1 = new LatLng(36.351844, 127.410948);
         googleMap.addMarker(new MarkerOptions()
@@ -121,6 +133,12 @@ public class Cat7Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.addMarker(new MarkerOptions()
                 .position(pojan2)
                 .title("아주접착테프")
+                .snippet("포장/접착")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+        LatLng pojan3 = new LatLng(36.349540, 127.414772);
+        googleMap.addMarker(new MarkerOptions()
+                .position(pojan3)
+                .title("보성테이프")
                 .snippet("포장/접착")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
     }

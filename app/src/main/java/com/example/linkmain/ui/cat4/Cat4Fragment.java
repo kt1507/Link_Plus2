@@ -110,6 +110,12 @@ public class Cat4Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         //하드코딩하세영!
+        LatLng clmul1 = new LatLng(36.353553,127.409310);
+        googleMap.addMarker(new MarkerOptions()
+                .position(clmul1)
+                .title("신세계철물")
+                .snippet("철물")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         LatLng clgon1 = new LatLng(36.348921,127.415021);
         googleMap.addMarker(new MarkerOptions()
@@ -133,6 +139,12 @@ public class Cat4Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.addMarker(new MarkerOptions()
                 .position(clgon4)
                 .title("광덕금속")
+                .snippet("철공예")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        LatLng clgon5 = new LatLng(36.352355, 127.410422);
+        googleMap.addMarker(new MarkerOptions()
+                .position(clgon5)
+                .title("신성철망")
                 .snippet("철공예")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 

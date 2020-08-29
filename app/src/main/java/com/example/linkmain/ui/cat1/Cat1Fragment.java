@@ -1,10 +1,15 @@
 package com.example.linkmain.ui.cat1;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -23,7 +28,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Cat1Fragment extends Fragment implements OnMapReadyCallback {
     private MapView mapView = null;
-
+    private Cat1ViewModel cat1ViewModel;
+    private EditText editText;
     public Cat1Fragment()
     {
         // required
@@ -39,10 +45,8 @@ public class Cat1Fragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_home, container, false);
-
         mapView = (MapView)layout.findViewById(R.id.map);
         mapView.getMapAsync(this);
-
         return layout;
     }
 
@@ -50,6 +54,8 @@ public class Cat1Fragment extends Fragment implements OnMapReadyCallback {
     public void onStart() {
         super.onStart();
         mapView.onStart();
+        Toast toast = Toast.makeText(this.getContext(), "cat1 is open", Toast.LENGTH_LONG);
+        toast.show();
     }
 
     @Override
@@ -74,6 +80,8 @@ public class Cat1Fragment extends Fragment implements OnMapReadyCallback {
     public void onPause() {
         super.onPause();
         mapView.onPause();
+        Toast toast = Toast.makeText(this.getContext(), "cat1 is closed", Toast.LENGTH_LONG);
+        toast.show();
     }
 
     @Override
@@ -120,6 +128,24 @@ public class Cat1Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.addMarker(new MarkerOptions()
                 .position(jungi2)
                 .title("LS산전")
+                .snippet("전기")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        LatLng jungi3 = new LatLng(36.349128,127.415073);
+        googleMap.addMarker(new MarkerOptions()
+                .position(jungi3)
+                .title("백제종합전기")
+                .snippet("전기")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        LatLng jungi4 = new LatLng(36.350293, 127.413880);
+        googleMap.addMarker(new MarkerOptions()
+                .position(jungi4)
+                .title("명일전기")
+                .snippet("전기")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        LatLng jungi5 = new LatLng(36.353716, 127.411533);
+        googleMap.addMarker(new MarkerOptions()
+                .position(jungi5)
+                .title("상일전기")
                 .snippet("전기")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 

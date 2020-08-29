@@ -117,6 +117,12 @@ public class Cat6Fragment extends Fragment implements OnMapReadyCallback {
                 .title("화신공조상사")
                 .snippet("닥트")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        LatLng dackt2 = new LatLng(36.348880,127.415125);
+        googleMap.addMarker(new MarkerOptions()
+                .position(dackt2)
+                .title("신도공조닥트")
+                .snippet("닥트")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
         LatLng jinel1 = new LatLng(36.354630, 127.407719);
         googleMap.addMarker(new MarkerOptions()
@@ -125,6 +131,25 @@ public class Cat6Fragment extends Fragment implements OnMapReadyCallback {
                 .snippet("진열대")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
+        LatLng gapan1 = new LatLng(36.349729, 127.414080);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gapan1)
+                .title("영락인쇄")
+                .snippet("간판")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        LatLng gapan2 = new LatLng(36.350309,127.413466);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gapan2)
+                .title("중부도장")
+                .snippet("간판")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        LatLng gapan3 = new LatLng(36.349259, 127.414920);
+        googleMap.addMarker(new MarkerOptions()
+                .position(gapan3)
+                .title("미래사")
+                .snippet("간판")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
     }
+
 
 }

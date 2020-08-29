@@ -110,6 +110,19 @@ public class Cat8Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         //하드코딩하세영!
+        LatLng carfo1 = new LatLng(36.348799, 127.415232);
+        googleMap.addMarker(new MarkerOptions()
+                .position(carfo1)
+                .title("양지타이어")
+                .snippet("자동차용품")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+        LatLng drive1 = new LatLng(36.353894, 127.408893);
+        googleMap.addMarker(new MarkerOptions()
+                .position(drive1)
+                .title("신성산업공사")
+                .snippet("운반기기")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
         LatLng motor1 = new LatLng(36.352763, 127.409635);
         googleMap.addMarker(new MarkerOptions()

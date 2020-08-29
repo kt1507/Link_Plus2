@@ -135,6 +135,12 @@ public class Cat2Fragment extends Fragment implements OnMapReadyCallback {
                 .title("부일종합물산")
                 .snippet("안전용품")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+        LatLng anjun5 = new LatLng(36.349044,127.414978);
+        googleMap.addMarker(new MarkerOptions()
+                .position(anjun5)
+                .title("럭키산업안전")
+                .snippet("안전용품")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
     }
 
 }

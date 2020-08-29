@@ -110,6 +110,18 @@ public class Cat5Fragment extends Fragment implements OnMapReadyCallback {
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         //하드코딩하세영!
+        LatLng tiyle1 = new LatLng(36.353241,127.409735);
+        googleMap.addMarker(new MarkerOptions()
+                .position(tiyle1)
+                .title("로하스산업")
+                .snippet("타일")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        LatLng tiyle2 = new LatLng(36.351948, 127.411834);
+        googleMap.addMarker(new MarkerOptions()
+                .position(tiyle2)
+                .title("탑블랙세라믹")
+                .snippet("타일")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
         LatLng jangp1 = new LatLng(36.352298, 127.410581);
         googleMap.addMarker(new MarkerOptions()
@@ -117,11 +129,23 @@ public class Cat5Fragment extends Fragment implements OnMapReadyCallback {
                 .title("신혼지업사")
                 .snippet("장판")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        LatLng jangp2 = new LatLng(36.350440, 127.414290);
+        googleMap.addMarker(new MarkerOptions()
+                .position(jangp2)
+                .title("(주)다원하우징")
+                .snippet("장판")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
         LatLng boilr1 = new LatLng(36.353051, 127.408939);
         googleMap.addMarker(new MarkerOptions()
                 .position(boilr1)
                 .title("삼우스팀보일러")
+                .snippet("보일러")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        LatLng boilr2 = new LatLng(36.353567,127.410088);
+        googleMap.addMarker(new MarkerOptions()
+                .position(boilr2)
+                .title("한빛가스상사(경동나비엔 대덕대리점)")
                 .snippet("보일러")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
