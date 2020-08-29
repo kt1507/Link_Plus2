@@ -20,28 +20,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/info_back_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_linear5"
-            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
-            android:scaleType="fitCenter"
-            android:layout_gravity="start"
-            android:layout_marginLeft="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="가게 정보"
-            android:fontFamily="@font/gmarketsansttfbold"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:textSize="30sp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:text="가게 정보"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_weight="5"/>
+
+            <ImageButton
+                android:id="@+id/info_back_btn"
+                android:layout_width="20dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_linear5"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/shapeLayout"
@@ -50,7 +59,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="17dp"
             android:layout_marginRight="17dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/shape_linear5">
 
             <ImageView

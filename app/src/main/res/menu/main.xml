@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <item-->
-<!--        android:id="@+id/store_info_toolbar_icon"-->
-<!--        android:title="@string/action_listview"-->
-<!--        app:showAsAction="ifRoom"-->
-<!--        android:icon="@drawable/ic_baseline_view_headline_24"-->
-<!--        />-->
+ <!--   <item
+        android:id="@+id/back_item"
+        android:title="@string/action_listview"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_close_24"
+        />
+        -->
 </menu>

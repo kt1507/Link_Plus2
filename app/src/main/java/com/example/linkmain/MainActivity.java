@@ -1,30 +1,27 @@
 package com.example.linkmain;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -32,17 +29,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.linkmain.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -62,8 +56,10 @@ public class MainActivity extends AppCompatActivity
     Animation translatestartAnim;
 
     FrameLayout page;
-    Button Animbutton;
 
+    private Menu mMenu;
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -248,6 +244,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onAnimationStart(Animation animation) {
                 page.setVisibility(View.VISIBLE); // 슬라이딩 시작할 때 페이지 보이게
+
                 //Animbutton.setText("닫기");
                 isPageOpen = true;
             }
@@ -255,7 +252,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onAnimationEnd(Animation animation) {
                 // 페이지 다 열리고 버튼 글자 변경 및 isPageOpen 변수 값 변경
-
             }
 
             @Override
@@ -286,7 +282,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         // Action Button - 스크롤뷰 진입
-        FloatingActionButton fab = findViewById(R.id.fab1);
+        final FloatingActionButton fab = findViewById(R.id.fab1);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -297,6 +293,7 @@ public class MainActivity extends AppCompatActivity
                     page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
                 }else{ //페이지 닫혀있으면
                     page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
+                    fab.hide();
                 }
             }
         });
@@ -318,22 +315,23 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.mMenu = menu;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
-//    // Option Item (상단 바)
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item){
-//        switch (item.getItemId()){
-//            case R.id.store_info_toolbar_icon:
-//                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//                Toast.makeText(getApplicationContext(), "로그인화면으로 이동합니다!", Toast.LENGTH_SHORT).show();
-//                return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    // Option Item (상단 바)
+/*    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.back_item:
+                page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+*/
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -342,7 +340,9 @@ public class MainActivity extends AppCompatActivity
                 || super.onSupportNavigateUp();
     }
 
-
+    public void onClickCloseListFramelayout(View view){
+        page.startAnimation(translateBottomAnim);
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -377,4 +377,13 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+/*
+    public void onClickNavHome(MenuItem item) {
+        Toast.makeText(this.getApplicationContext(),"메인화면",Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickNavCat1(MenuItem item){
+        Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
+
+    }*/
 }
