@@ -10,8 +10,9 @@ public class StoreClass {
     private String worktime;
     private String notworktime;
     private int parking;
+    private int store_picture;
 
-    public StoreClass(String storename, String catrgory, String address, double point_x, double point_y, String phone, String worktime, String notworktime, int parking) {
+    public StoreClass(String storename, String catrgory, String address, double point_x, double point_y, String phone, String worktime, String notworktime, int parking, int store_picture) {
         this.storename = storename;
         this.category = catrgory;
         this.address = address;
@@ -21,6 +22,7 @@ public class StoreClass {
         this.worktime = worktime;
         this.notworktime = notworktime;
         this.parking = parking;
+        this.store_picture = store_picture;
     }
 
     public String getStorename() {
@@ -50,6 +52,9 @@ public class StoreClass {
     public int getParking() {
         return parking;
     }
+    public int getStore_picture() {
+        return store_picture;
+    }
 
     public void setStorename(String storename) {
         this.storename = storename;
@@ -78,6 +83,7 @@ public class StoreClass {
     public void setParking(int parking) {
         this.parking = parking;
     }
-
-
+    public void setStore_picture(int store_picture) {
+        this.store_picture = store_picture;
+    }
 }
