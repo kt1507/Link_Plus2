@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -30,6 +32,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.linkmain.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -343,6 +346,7 @@ public class MainActivity extends AppCompatActivity
                 || super.onSupportNavigateUp();
     }
 
+    //content.xml 닫는 버튼
     public void onClickCloseListFramelayout(View view){
         page.startAnimation(translateBottomAnim);
     }
@@ -380,13 +384,150 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-/*
+
     public void onClickNavHome(MenuItem item) {
-        Toast.makeText(this.getApplicationContext(),"메인화면",Toast.LENGTH_SHORT).show();
+        ListViewFragment listViewFragment = new ListViewFragment(); // 객체 생성
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();    //프래그먼트 replace
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","모두표시");
+        listViewFragment.setArguments(bundle);  //bundle로 데이터 넘김
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT); //navibar 닫음
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
     }
 
     public void onClickNavCat1(MenuItem item){
-        Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
+        ListViewFragment listViewFragment = new ListViewFragment();
+        HomeFragment homeFragment = new HomeFragment();
 
-    }*/
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","전기");
+        bundle.putString("Tab2","조명");
+        bundle.putString("Tab3","판넬");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+    }
+
+    public void onClickNavCat2(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","소방");
+        bundle.putString("Tab2","안전용품");
+        bundle.putString("Tab3","청소용품");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavCat3(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","공구");
+        bundle.putString("Tab2","파이프");
+        bundle.putString("Tab3","아크릴");
+        bundle.putString("Tab4","목재");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavCat4(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","철물");
+        bundle.putString("Tab2","철공예");
+        bundle.putString("Tab3","철망");
+        bundle.putString("Tab4","볼트");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavCat5(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","창호");
+        bundle.putString("Tab2","장판");
+        bundle.putString("Tab3","타일");
+        bundle.putString("Tab4","보일러");
+        bundle.putString("Tab5","천막");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavCat6(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","닥트");
+        bundle.putString("Tab2","간판");
+        bundle.putString("Tab3","식당용품");
+        bundle.putString("Tab4","진열대");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavCat7(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","페인트");
+        bundle.putString("Tab2","포장/접착");
+        bundle.putString("Tab3","냉동");
+        listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavCat8(MenuItem item){
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,homeFragment).commit();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","자동차용품");
+        bundle.putString("Tab2","운반기기");
+        bundle.putString("Tab3","모터펌프");
+        listViewFragment.setArguments(bundle);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
 }

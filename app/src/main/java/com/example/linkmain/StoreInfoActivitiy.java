@@ -24,6 +24,7 @@ public class StoreInfoActivitiy extends AppCompatActivity {
         setContentView(R.layout.store_info);
 //        getSupportActionBar().hide();
 
+        //상단 가게 정보 Intent 받아서 표출
         TextView store_nameTextView = (TextView)findViewById(R.id.store_name);
         TextView phoneTextView = (TextView)findViewById(R.id.phone);
         TextView timeTextView = (TextView)findViewById(R.id.time);
@@ -49,15 +50,17 @@ public class StoreInfoActivitiy extends AppCompatActivity {
             store_pictureView.setImageDrawable(getResources().getDrawable(store_picture));
         }
 
-        //Adapter 생성
-        adapter = new StoreInfoAdapter();
-
+        //뒤로가기 버튼
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        //물품 항목 추가
+        //Adapter 생성
+        adapter = new StoreInfoAdapter();
 
         //리스트뷰 참조 및 Adapter 달기
         listview = (ListView) findViewById(R.id.product_listview);
