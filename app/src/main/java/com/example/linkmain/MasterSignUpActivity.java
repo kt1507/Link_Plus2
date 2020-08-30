@@ -125,6 +125,13 @@ public class MasterSignUpActivity extends AppCompatActivity {
             } // onClick END
         }); // 버튼 onClickListener END
     } // onCreate END
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        startActivity(new Intent(MasterSignUpActivity.this, SignUpAccessActivity.class));
+        finish();
+    }
+
 } // public class END
 
 

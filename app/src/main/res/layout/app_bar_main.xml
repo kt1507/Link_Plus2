@@ -42,11 +42,11 @@
             android:id="@+id/fab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="bottom|start"
             android:layout_margin="30dp"
-            app:srcCompat="@drawable/ic_baseline_dehaze_24"
-            android:tint="@android:color/white"
-            android:backgroundTint="@android:color/holo_purple"
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            android:tint="@android:color/black"
+            android:backgroundTint="@android:color/background_light"
             />
         <!--    /* Floating Action Button-->
     <!--    기본값 = layout_margin : @dimen/fab_margin-->

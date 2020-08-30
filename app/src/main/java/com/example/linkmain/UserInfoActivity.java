@@ -181,5 +181,12 @@ public class UserInfoActivity extends AppCompatActivity {
             startActivity(new Intent(UserInfoActivity.this, MainActivity.class));
             finish();
         }
+    } //onCreate END
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        startActivity(new Intent(UserInfoActivity.this, MainActivity.class));
+        finish();
     }
+
 }

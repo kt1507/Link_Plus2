@@ -47,7 +47,7 @@
 <!--            android:layout_gravity="center"-->
 <!--            android:layout_marginTop="-12dp"-->
 <!--            android:layout_marginBottom="50dp"-->
-            />
+<!--            />-->
 
         <EditText
             android:id="@+id/main_pwd"
@@ -81,6 +81,8 @@
             android:src="@drawable/ic_baseline_navigate_next_24"
             android:scaleType="fitCenter"
             />
+
+
 
         <Button
             android:id="@+id/main_join_btn"
