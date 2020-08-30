@@ -534,7 +534,7 @@ public class MainActivity extends AppCompatActivity
         // 팝업 창
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("문의 메일 전송하기");
-        builder.setMessage("앱 개발팀으로 문의사항을 메일로 전송합니다.\n(확인 시 자동으로 메일 앱으로 전환됩니다)\n\n[메일주소 : ostreetmaster@gmail.com]");
+        builder.setMessage("개발팀으로 문의사항을 메일로 전송합니다.\n(확인 시 자동으로 메일 앱으로 전환됩니다)\n\n[메일주소 : ostreetmaster@gmail.com]");
         builder.setPositiveButton("메일 전송하기", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
