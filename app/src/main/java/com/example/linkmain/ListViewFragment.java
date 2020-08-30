@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,14 +17,13 @@ public class ListViewFragment extends Fragment {
     private ListView listview;
     private ListViewAdapter adapter;
     private Cat1ViewModel cat1ViewModel;
-    //private String navibar_category = null;
+    private String Tab1 = null;
+    private String Tab2 = null;
+    private String Tab3 = null;
     private String category = null;
 
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if(getArguments() != null) {
-            navibar_category = getArguments().getString("전기");
-        }*/
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,6 +31,16 @@ public class ListViewFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.content_main, container, false);
 
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            Tab1 = bundle.getString("Tab1");
+            Tab2 = bundle.getString("Tab2");
+            Tab3 = bundle.getString("Tab3");
+
+            Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
+        }
         adapter = new ListViewAdapter();
 
         //리스트뷰 참조 및 Adapter 달기

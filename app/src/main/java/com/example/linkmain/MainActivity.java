@@ -380,13 +380,19 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-/*
+
     public void onClickNavHome(MenuItem item) {
         Toast.makeText(this.getApplicationContext(),"메인화면",Toast.LENGTH_SHORT).show();
     }
 
     public void onClickNavCat1(MenuItem item){
-        Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
-
-    }*/
+        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
+        ListViewFragment listViewFragment = new ListViewFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        Bundle bundle = new Bundle();
+        bundle.putString("Tab1","전기");
+        bundle.putString("Tab2","조명");
+        bundle.putString("Tab3","판넬");
+        listViewFragment.setArguments(bundle);
+    }
 }
