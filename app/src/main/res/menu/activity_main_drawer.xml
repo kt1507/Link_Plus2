@@ -9,6 +9,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_near_me_24"
+            android:onClick="onClickNavHome"
             android:title="@string/category_main" />
 
         <item

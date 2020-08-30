@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.linkmain.ui.cat1.Cat1ViewModel;
 
@@ -39,35 +40,33 @@ public class ListViewFragment extends Fragment {
             if(category != null){
                 Tab1 = category;
                 category = null;
+                Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab2");
             if(category != null){
                 Tab2 = category;
                 category = null;
+                Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab3");
             if(category != null){
                 Tab3 = category;
                 category = null;
+                Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab4");
             if(category != null){
                 Tab4 = category;
                 category = null;
+                Toast.makeText(this.getContext(), Tab4, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab5");
             if(category != null){
                 Tab5 = category;
                 category = null;
+                Toast.makeText(this.getContext(), Tab5, Toast.LENGTH_SHORT).show();
             }
-
-            Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this.getContext(), Tab4, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this.getContext(), Tab5, Toast.LENGTH_SHORT).show();
-
-           // update(root);
+            //update(root);
         }
         adapter = new ListViewAdapter();
 
@@ -78,70 +77,29 @@ public class ListViewFragment extends Fragment {
         //db파일 테스트
         StoreDBClass storeDBClass = new StoreDBClass();
         storeDBClass.storedbclass();
-        /*for(int i = 0; i < 67; i++){
+        for(int i = 0; i < 67; i++){
             if(Tab1 != null && Tab1.equals(storeDBClass.store[i].getCategory())){
                 adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
             }
-            if(Tab2 != null && Tab2.equals(storeDBClass.store[i].getCategory())){
+            else if(Tab2 != null && Tab2.equals(storeDBClass.store[i].getCategory())){
                 adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
             }
-            if(Tab3 != null && Tab3.equals(storeDBClass.store[i].getCategory())){
+            else if(Tab3 != null && Tab3.equals(storeDBClass.store[i].getCategory())){
                 adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
             }
-            if(Tab4 != null && Tab4.equals(storeDBClass.store[i].getCategory())){
+            else if(Tab4 != null && Tab4.equals(storeDBClass.store[i].getCategory())){
                 adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
             }
-            if(Tab5 != null && Tab5.equals(storeDBClass.store[i].getCategory())){
+            else if(Tab5 != null && Tab5.equals(storeDBClass.store[i].getCategory())){
                 adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
             }
-            //adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-        }*/
-        for(int i = 0; i < 67; i++){
-            adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-        }
-        //adapter.addItem(storeDBClass.store[0].getStorename(),storeDBClass.store[0].getPhone(),storeDBClass.store[0].getWorktime(),"주차 가능 여부 : X", getResources().getDrawable(R.mipmap.ic_launcher));
+            else if(Tab1 == "모두표시" || Tab1 == null){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
 
-        //adapter를 통해 자료 추가
-        /*adapter.addItem("야무진", "042-638-0689~90", "8:30~17:30", "주차 가능 여부 : X", getResources().getDrawable(R.mipmap.ic_launcher));
-        adapter.addItem("대남기공사", "042-626-4880", "07:00~18:00", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
-        adapter.addItem("세종종합상사", "042-635-6040", "07:00~19:00", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
-        adapter.addItem("샘 광고 레이저", "042-632-4445,631-0907", "08:00~18:00", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
-        adapter.addItem("명창종합상사", "042-626-9240", "07:00~19:00", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
-        adapter.addItem("케이투발전기(주)", "042-673-9400", "08:00~18:30", "주차 가능 여부 : O", getResources().getDrawable(R.mipmap.ic_launcher));
-*/
+        }
         adapter.notifyDataSetChanged(); //어댑터의 변경을 알림
 
         return root;
-    }
-
-    public void update(View root){
-        adapter = new ListViewAdapter();
-
-        listview = (ListView) root.findViewById(R.id.listview);
-        listview.setAdapter(adapter);
-
-        StoreDBClass storeDBClass = new StoreDBClass();
-        storeDBClass.storedbclass();
-
-        for(int i = 0; i < 67; i++){
-            if(Tab1 != null && Tab1.equals(storeDBClass.store[i].getCategory())){
-                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-            }
-            if(Tab2 != null && Tab2.equals(storeDBClass.store[i].getCategory())){
-                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-            }
-            if(Tab3 != null && Tab3.equals(storeDBClass.store[i].getCategory())){
-                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-            }
-            if(Tab4 != null && Tab4.equals(storeDBClass.store[i].getCategory())){
-                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-            }
-            if(Tab5 != null && Tab5.equals(storeDBClass.store[i].getCategory())){
-                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-            }
-            //adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
-        }
-        adapter.notifyDataSetChanged();
-
     }
 }
