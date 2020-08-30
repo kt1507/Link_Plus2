@@ -20,6 +20,8 @@ public class ListViewFragment extends Fragment {
     private String Tab1 = null;
     private String Tab2 = null;
     private String Tab3 = null;
+    private String Tab4 = null;
+    private String Tab5 = null;
     private String category = null;
 
     public void onCreate (Bundle savedInstanceState) {
@@ -33,13 +35,39 @@ public class ListViewFragment extends Fragment {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            Tab1 = bundle.getString("Tab1");
-            Tab2 = bundle.getString("Tab2");
-            Tab3 = bundle.getString("Tab3");
+            category = bundle.getString("Tab1");
+            if(category != null){
+                Tab1 = category;
+                category = null;
+            }
+            category = bundle.getString("Tab2");
+            if(category != null){
+                Tab2 = category;
+                category = null;
+            }
+            category = bundle.getString("Tab3");
+            if(category != null){
+                Tab3 = category;
+                category = null;
+            }
+            category = bundle.getString("Tab4");
+            if(category != null){
+                Tab4 = category;
+                category = null;
+            }
+            category = bundle.getString("Tab5");
+            if(category != null){
+                Tab5 = category;
+                category = null;
+            }
 
             Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
             Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
             Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), Tab4, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), Tab5, Toast.LENGTH_SHORT).show();
+
+           // update(root);
         }
         adapter = new ListViewAdapter();
 
@@ -50,6 +78,24 @@ public class ListViewFragment extends Fragment {
         //db파일 테스트
         StoreDBClass storeDBClass = new StoreDBClass();
         storeDBClass.storedbclass();
+        /*for(int i = 0; i < 67; i++){
+            if(Tab1 != null && Tab1.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab2 != null && Tab2.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab3 != null && Tab3.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab4 != null && Tab4.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab5 != null && Tab5.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            //adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+        }*/
         for(int i = 0; i < 67; i++){
             adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
         }
@@ -68,7 +114,34 @@ public class ListViewFragment extends Fragment {
         return root;
     }
 
-    public void update(){
-       // adapter.notifyDataSetChanged();
+    public void update(View root){
+        adapter = new ListViewAdapter();
+
+        listview = (ListView) root.findViewById(R.id.listview);
+        listview.setAdapter(adapter);
+
+        StoreDBClass storeDBClass = new StoreDBClass();
+        storeDBClass.storedbclass();
+
+        for(int i = 0; i < 67; i++){
+            if(Tab1 != null && Tab1.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab2 != null && Tab2.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab3 != null && Tab3.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab4 != null && Tab4.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            if(Tab5 != null && Tab5.equals(storeDBClass.store[i].getCategory())){
+                adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+            }
+            //adapter.addItem(storeDBClass.store[i].getStorename(), storeDBClass.store[i].getPhone(), storeDBClass.store[i].getWorktime(), storeDBClass.store[i].getCategory(), storeDBClass.store[i].getParking(), storeDBClass.store[i].getStore_picture());
+        }
+        adapter.notifyDataSetChanged();
+
     }
 }
