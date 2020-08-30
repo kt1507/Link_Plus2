@@ -32,6 +32,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.linkmain.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -345,6 +346,7 @@ public class MainActivity extends AppCompatActivity
                 || super.onSupportNavigateUp();
     }
 
+    //content.xml 닫는 버튼
     public void onClickCloseListFramelayout(View view){
         page.startAnimation(translateBottomAnim);
     }
@@ -384,22 +386,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavHome(MenuItem item) {
-        //Toast.makeText(this.getApplicationContext(),"메인화면",Toast.LENGTH_SHORT).show();
-        ListViewFragment listViewFragment = new ListViewFragment();
-
+        ListViewFragment listViewFragment = new ListViewFragment(); // 객체 생성
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();    //프래그먼트 replace
         Bundle bundle = new Bundle();
         bundle.putString("Tab1","모두표시");
-        listViewFragment.setArguments(bundle);
+        listViewFragment.setArguments(bundle);  //bundle로 데이터 넘김
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerLayout.closeDrawer(Gravity.LEFT);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
+        drawerLayout.closeDrawer(Gravity.LEFT); //navibar 닫음
     }
 
     public void onClickNavCat1(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
         bundle.putString("Tab1","전기");
         bundle.putString("Tab2","조명");
@@ -407,12 +405,9 @@ public class MainActivity extends AppCompatActivity
         listViewFragment.setArguments(bundle);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(Gravity.LEFT);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
     }
 
     public void onClickNavCat2(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
@@ -425,7 +420,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavCat3(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
@@ -439,7 +433,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavCat4(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
@@ -453,7 +446,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavCat5(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
@@ -468,7 +460,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavCat6(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
@@ -482,7 +473,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavCat7(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();
@@ -495,7 +485,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickNavCat8(MenuItem item){
-        //Toast.makeText(this.getApplicationContext(),"전기, 조면, 판넬",Toast.LENGTH_SHORT).show();
         ListViewFragment listViewFragment = new ListViewFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();
         Bundle bundle = new Bundle();

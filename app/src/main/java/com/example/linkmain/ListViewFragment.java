@@ -34,37 +34,37 @@ public class ListViewFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.content_main, container, false);
 
-        Bundle bundle = getArguments();
+        Bundle bundle = getArguments(); //MainActivity에서 bundle로 데이터 받아옴
         if (bundle != null) {
             category = bundle.getString("Tab1");
             if(category != null){
                 Tab1 = category;
                 category = null;
-                Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab2");
             if(category != null){
                 Tab2 = category;
                 category = null;
-                Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab3");
             if(category != null){
                 Tab3 = category;
                 category = null;
-                Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab4");
             if(category != null){
                 Tab4 = category;
                 category = null;
-                Toast.makeText(this.getContext(), Tab4, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this.getContext(), Tab4, Toast.LENGTH_SHORT).show();
             }
             category = bundle.getString("Tab5");
             if(category != null){
                 Tab5 = category;
                 category = null;
-                Toast.makeText(this.getContext(), Tab5, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this.getContext(), Tab5, Toast.LENGTH_SHORT).show();
             }
             //update(root);
         }
@@ -74,7 +74,7 @@ public class ListViewFragment extends Fragment {
         listview = (ListView) root.findViewById(R.id.listview);
         listview.setAdapter(adapter);
 
-        //db파일 테스트
+        //db파일 객체
         StoreDBClass storeDBClass = new StoreDBClass();
         storeDBClass.storedbclass();
         for(int i = 0; i < 67; i++){
