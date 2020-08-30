@@ -387,6 +387,7 @@ public class MainActivity extends AppCompatActivity
 
     public void onClickNavHome(MenuItem item) {
         ListViewFragment listViewFragment = new ListViewFragment(); // 객체 생성
+        HomeFragment homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.listview_framelayout,listViewFragment).commit();    //프래그먼트 replace
         Bundle bundle = new Bundle();
         bundle.putString("Tab1","모두표시");

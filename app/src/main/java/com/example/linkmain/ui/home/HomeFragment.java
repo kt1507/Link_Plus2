@@ -74,12 +74,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 Tab5 = category;
                 category = null;
             }
-
-//            Toast.makeText(this.getContext(), Tab1, Toast.LENGTH_SHORT).show();
-//            Toast.makeText(this.getContext(), Tab2, Toast.LENGTH_SHORT).show();
-//            Toast.makeText(this.getContext(), Tab3, Toast.LENGTH_SHORT).show();
-//            Toast.makeText(this.getContext(), Tab4, Toast.LENGTH_SHORT).show();
-//            Toast.makeText(this.getContext(), Tab5, Toast.LENGTH_SHORT).show();
         }
 
         mapView = (MapView)layout.findViewById(R.id.map);
