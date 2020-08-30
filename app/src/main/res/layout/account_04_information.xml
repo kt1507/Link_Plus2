@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="#000000"
+    android:weightSum="6">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
+        android:layout_weight="2"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:gravity="center|bottom"
         android:textSize="40dp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
@@ -22,14 +22,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="vertical"
+        android:layout_weight="4"
+        android:weightSum="7"
         >
         <TextView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="Name"
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColor="@android:color/darker_gray"
@@ -42,6 +45,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text=""
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColor="@android:color/white"
@@ -49,20 +53,11 @@
             android:gravity="center"
             android:textColorHint="#FFFFFF"
             />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="____________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
-<!--            />-->
-
         <TextView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="Number"
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColor="@android:color/darker_gray"
@@ -74,6 +69,7 @@
             android:id="@+id/info_number"
             android:layout_width="300dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:text=""
             android:fontFamily="@font/gmarketsansttfbold"
@@ -82,20 +78,12 @@
             android:gravity="center"
             android:textColorHint="#FFFFFF"
             />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="____________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
-<!--            />-->
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="Email Address"
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColor="@android:color/darker_gray"
@@ -108,6 +96,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text=""
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColor="@android:color/white"
@@ -115,104 +104,48 @@
             android:gravity="center"
             android:textColorHint="#FFFFFF"
             />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="____________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
-<!--            />-->
 
-
-<!--        <TextView-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:text="개인 정보를 수정하려면 버튼을 눌러 이동하세요"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:textSize="14dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textColorHint="#FFFFFF"-->
-<!--            />-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="__________________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-25dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            />-->
-
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/info_change_btn"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="@drawable/shape_button_circle"-->
-<!--            android:src="@drawable/ic_baseline_navigate_next_24"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            />-->
-
-        <Button
-            android:id="@+id/info_change_btn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/shape_button2"
-            android:text="개인정보 수정"
-            android:fontFamily="@font/gmarketsansttfbold"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/darker_gray"
-            android:text="______________________"
-            android:layout_gravity="center"
-            android:layout_marginTop="-12dp"
-            />
-        <Button
-            android:id="@+id/main_logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/shape_button2"
-            android:text="로그아웃"
-            android:fontFamily="@font/gmarketsansttfbold"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="______________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-12dp"-->
-<!--            />-->
-<!--        <Button-->
-<!--            android:id="@+id/main_delete_btn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@drawable/shape_button"-->
-<!--            android:text="회원탈퇴"-->
-<!--            android:textColor="@android:color/holo_red_light"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"-->
-<!--            />-->
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            >
+            <Button
+                android:id="@+id/info_change_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/shape_button2"
+                android:text="개인정보 수정"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="______________________"
+                android:layout_gravity="center"
+                android:layout_marginTop="-12dp"
+                />
+            <Button
+                android:id="@+id/main_logout_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_button2"
+                android:text="로그아웃"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>

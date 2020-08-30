@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="#000000"
+    android:weightSum="6">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
+        android:layout_weight="2"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:gravity="center|bottom"
         android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
@@ -22,30 +22,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         >
         <EditText
             android:id="@+id/change_info_name"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:hint="이름 입력하기"
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColorHint="#FFFFFF"
             android:gravity="center"
             android:textColor="@android:color/white"
-            />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="____________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
             />
 
         <EditText
@@ -60,16 +51,6 @@
             android:gravity="center"
             android:textColor="@android:color/white"
             />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="____________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
-            />
-
 
         <EditText
             android:id="@+id/change_info_pw"
@@ -82,15 +63,6 @@
             android:textColorHint="#FFFFFF"
             android:gravity="center"
             android:textColor="@android:color/white"
-            />
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@android:color/darker_gray"-->
-<!--            android:text="____________________________________"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="-20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
             />
 
         <LinearLayout
@@ -135,44 +107,6 @@
                     android:scaleType="fitCenter"
                     />
             </LinearLayout>
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_weight="1"-->
-<!--                >-->
-<!--                <TextView-->
-<!--                    android:layout_width="300dp"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginTop="120dp"-->
-<!--                    android:text="회원탈퇴하기"-->
-<!--                    android:textColor="@android:color/darker_gray"-->
-<!--                    android:textSize="20sp"-->
-<!--                    android:gravity="center"-->
-<!--                    android:textColorHint="#FFFFFF"-->
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textColor="@android:color/darker_gray"-->
-<!--                    android:text="__________________________"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginTop="-25dp"-->
-<!--                    android:layout_marginBottom="10dp"-->
-<!--                    />-->
-
-<!--                <ImageButton-->
-<!--                    android:id="@+id/Delete_Btn"-->
-<!--                    android:layout_width="80dp"-->
-<!--                    android:layout_height="80dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:background="@drawable/shape_button_circle_r"-->
-<!--                    android:src="@drawable/ic_baseline_navigate_next_24_r"-->
-<!--                    android:scaleType="fitCenter"-->
-<!--                    />-->
-<!--            </LinearLayout>-->
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
