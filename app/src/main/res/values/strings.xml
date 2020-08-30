@@ -17,14 +17,14 @@
     <string name="home_second">Home Second</string>
     <string name="title_activity_maps">Map</string>
 
-    <string name="category_main">메인화면(모두표시)</string>
-    <string name="category01">전기  조명  판넬</string>
-    <string name="category02">소방 안전용품 청소용품</string>
-    <string name="category03">공구 파이프 아크릴 목재</string>
-    <string name="category04">철물 철공예 철망 볼트</string>
-    <string name="category05">창호 장판 타일 보일러 천막</string>
-    <string name="category06">닥트 간판 식당용품 진열대</string>
-    <string name="category07">페인트 포장/접착 냉동</string>
-    <string name="category08">자동차용품 운반기기 모터펌프</string>
+    <string name="category_main">  메인화면 (모두표시)</string>
+    <string name="category01">  전기  조명  판넬</string>
+    <string name="category02">  소방  안전용품  청소용품</string>
+    <string name="category03">  공구  파이프  아크릴  목재</string>
+    <string name="category04">  철물  철공예  철망  볼트</string>
+    <string name="category05">  창호  장판  타일  보일러  천막</string>
+    <string name="category06">  닥트  간판  식당용품  진열대</string>
+    <string name="category07">  페인트  포장/접착  냉동</string>
+    <string name="category08">  자동차용품  운반기기  모터펌프</string>
 
 </resources>

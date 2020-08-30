@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_cat1, R.id.nav_cat2, R.id.nav_cat3, R.id.nav_cat4, R.id.nav_cat5, R.id.nav_cat6, R.id.nav_cat7, R.id.nav_cat8)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_cat1, R.id.nav_cat2, R.id.nav_cat3, R.id.nav_cat4, R.id.nav_cat5, R.id.nav_cat6, R.id.nav_cat7, R.id.nav_cat8, R.id.nav_email)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -377,7 +377,6 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-
         //HomeFragment homeFragment = HomeFragment.sharecategory(category);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -529,5 +528,27 @@ public class MainActivity extends AppCompatActivity
         listViewFragment.setArguments(bundle);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    public void onClickNavEmail(MenuItem item){
+        // 팝업 창
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("문의 메일 전송하기");
+        builder.setMessage("앱 개발팀으로 문의사항을 메일로 전송합니다.\n(확인 시 자동으로 메일 앱으로 전환됩니다)\n\n[메일주소 : ostreetmaster@gmail.com]");
+        builder.setPositiveButton("메일 전송하기", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.setType("plain/Text");
+                String[] address = {"ostreetmaster@gmail.com"};
+                email.putExtra(Intent.EXTRA_EMAIL, address);
+                email.putExtra(Intent.EXTRA_SUBJECT,"오거리 문의사항 메일 전송");
+                email.putExtra(Intent.EXTRA_TEXT, "어플리케이션 [오거리] 문의/건의 사항\n\n[문의/건의사항 입력]\n");
+                startActivity(email);
+            }
+        });
+        builder.setNeutralButton("취소", null);
+        builder.create().show();
     }
 }

@@ -8,59 +8,54 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_baseline_near_me_24"
             android:onClick="onClickNavHome"
             android:title="@string/category_main" />
 
         <item
             android:id="@+id/nav_cat1"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat1"
             android:title="@string/category01" />
         <item
             android:id="@+id/nav_cat2"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat2"
             android:title="@string/category02" />
         <item
             android:id="@+id/nav_cat3"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat3"
             android:title="@string/category03" />
         <item
             android:id="@+id/nav_cat4"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat4"
             android:title="@string/category04" />
         <item
             android:id="@+id/nav_cat5"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat5"
             android:title="@string/category05" />
         <item
             android:id="@+id/nav_cat6"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat6"
             android:title="@string/category06" />
         <item
             android:id="@+id/nav_cat7"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat7"
             android:title="@string/category07" />
         <item
             android:id="@+id/nav_cat8"
-            android:icon="@drawable/ic_baseline_arrow_right_24"
             android:onClick="onClickNavCat8"
             android:title="@string/category08" />
     </group>
+
+<!--    android:icon="@drawable/ic_baseline_arrow_right_24"-->
+
     <group
         android:id="@+id/menu02"
         android:checkableBehavior="single"
         >
         <item
-            android:id="@+id/drawer_item_accout"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:title="Ver 1.0" />
+            android:id="@+id/nav_email"
+            android:icon="@drawable/ic_baseline_mail_outline_24"
+            android:onClick="onClickNavEmail"
+            android:title="문의/건의사항" />
     </group>
 
 

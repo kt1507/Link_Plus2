@@ -99,11 +99,11 @@
                     />
                 <ImageButton
                     android:id="@+id/change_info_save"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/shape_button_circle"
-                    android:src="@drawable/ic_baseline_navigate_next_24"
+                    android:background="@android:color/black"
+                    android:src="@drawable/save_info"
                     android:scaleType="fitCenter"
                     />
             </LinearLayout>

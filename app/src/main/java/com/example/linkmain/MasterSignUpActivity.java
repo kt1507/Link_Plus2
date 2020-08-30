@@ -131,11 +131,11 @@ public class MasterSignUpActivity extends AppCompatActivity {
         }); // 버튼 onClickListener END
     } // onCreate END
 
-//    public void onBackPressed(){
-//        super.onBackPressed();
-//        startActivity(new Intent(MasterSignUpActivity.this, SignUpAccessActivity.class));
-//        finish();
-//    }
+    public void onBackPressed(){
+        super.onBackPressed();
+        startActivity(new Intent(MasterSignUpActivity.this, SignUpAccessActivity.class));
+        finish();
+    }
 
 } // public class END
 
