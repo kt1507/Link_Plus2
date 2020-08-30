@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -114,7 +115,12 @@ public class MasterSignUpActivity extends AppCompatActivity {
                                 finish();
                             }
                             else {
-                                Toast.makeText(MasterSignUpActivity.this, "이메일 양식을 지켜주세요", Toast.LENGTH_SHORT).show();
+                                // 팝업 창
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MasterSignUpActivity.this);
+                                builder.setTitle("회원가입 실패");
+                                builder.setMessage("이메일/페스워드의 형식이 잘못되었습니다.\n\n(Email : 유효한 계정 이메일 주소)\n(PW : 영문 4자 이상 + 숫자 2개 이상 포함)");
+                                builder.setNeutralButton("확인", null);
+                                builder.create().show();
                                 email_join.requestFocus();
                                 return;
                             } // else - email 입력형식 오류

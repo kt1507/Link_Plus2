@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity
         // Toolbar Text Delete
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Toolbar 로고 삽입
-        getSupportActionBar().setLogo(R.drawable.logo01);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setElevation(200);
+//        // Toolbar 로고 삽입
+//        getSupportActionBar().setLogo(R.drawable.logo01);
+//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setElevation(200);
 
 
 //        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_camera);
