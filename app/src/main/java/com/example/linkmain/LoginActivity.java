@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -185,8 +186,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onBackPressed(){
         super.onBackPressed();
+        ActivityCompat.finishAffinity(this);
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
-        finish();
     }
 
 }

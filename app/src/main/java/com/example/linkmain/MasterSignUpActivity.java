@@ -106,12 +106,11 @@ public class MasterSignUpActivity extends AppCompatActivity {
 
                                 Intent email = new Intent(Intent.ACTION_SEND);
                                 email.setType("plain/Text");
-                                String[] address = {"20160720@gm.hannam.ac.kr"};
+                                String[] address = {"ostreetmaster@gmail.com"};
                                 email.putExtra(Intent.EXTRA_EMAIL, address);
                                 email.putExtra(Intent.EXTRA_SUBJECT,"오거리 사업자 계정 신청");
-                                email.putExtra(Intent.EXTRA_TEXT, "어플리케이션 [오거리] 사업자 계정 신청\n" + emailValue);
+                                email.putExtra(Intent.EXTRA_TEXT, "오거리 어플리케이션에 대한 사업자 계정 권한 신청입니다.\n" + "어플리케이션 [오거리] 사업자 계정 신청 정보\n" + emailValue);
                                 startActivity(email);
-
                                 finish();
                             }
                             else {
@@ -126,11 +125,11 @@ public class MasterSignUpActivity extends AppCompatActivity {
         }); // 버튼 onClickListener END
     } // onCreate END
 
-    public void onBackPressed(){
-        super.onBackPressed();
-        startActivity(new Intent(MasterSignUpActivity.this, SignUpAccessActivity.class));
-        finish();
-    }
+//    public void onBackPressed(){
+//        super.onBackPressed();
+//        startActivity(new Intent(MasterSignUpActivity.this, SignUpAccessActivity.class));
+//        finish();
+//    }
 
 } // public class END
 

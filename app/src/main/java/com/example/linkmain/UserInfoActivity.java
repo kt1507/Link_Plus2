@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -133,8 +134,9 @@ public class UserInfoActivity extends AppCompatActivity {
                     if (firebaseAuth.getCurrentUser() != null) { //만약 이미 로그인되어있다면
                         firebaseAuth.signOut(); // 로그아웃시킴
                         Toast.makeText(getApplicationContext(), "로그아웃이 성공적으로 완료되었습니다!", Toast.LENGTH_SHORT).show();
+                        ActivityCompat.finishAffinity(UserInfoActivity.this);
                         startActivity(new Intent(UserInfoActivity.this, MainActivity.class));
-                        finish();
+//                        finish();
                     } else { //로그인 정보가 없는 경우
                         Toast.makeText(getApplicationContext(), "현재 로그인 정보가 없습니다!", Toast.LENGTH_SHORT).show();
                     }
@@ -185,8 +187,8 @@ public class UserInfoActivity extends AppCompatActivity {
 
     public void onBackPressed(){
         super.onBackPressed();
+        ActivityCompat.finishAffinity(this);
         startActivity(new Intent(UserInfoActivity.this, MainActivity.class));
-        finish();
     }
 
 }
