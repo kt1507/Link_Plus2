@@ -526,6 +526,7 @@ public class MainActivity extends AppCompatActivity
         bundle.putString("Tab2","운반기기");
         bundle.putString("Tab3","모터펌프");
         listViewFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(Gravity.LEFT);
     }
