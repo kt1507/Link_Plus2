@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +42,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -304,19 +312,33 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-//        Animbutton = findViewById(R.id.button);
-//
-//        // 버튼 클릭 이벤트 처리
-//        Animbutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (isPageOpen) { //페이지 열려있으면
-//                    page.startAnimation(translateBottomAnim); //아래로 닫기 애니메이션 실행
-//                } else { //페이지 닫혀있으면
-//                    page.startAnimation(translateTopAnim); //위로 열기 애니메이션 실행
-//                }
-//            }
-//        });
+        try {
+            InputStream is = getBaseContext().getResources().getAssets().open("StoreDB.xls");
+            Workbook wb = Workbook.getWorkbook(is);
+
+            if(wb != null) {
+                Sheet sheet = wb.getSheet(0);   // 시트 불러오기
+                if(sheet != null) {
+                    int colTotal = sheet.getColumns();    // 전체 컬럼
+                    int rowIndexStart = 1;                  // row 인덱스 시작
+                    int rowTotal = sheet.getColumn(colTotal-1).length;
+
+                    StringBuilder sb;
+                    for(int row=rowIndexStart;row<rowTotal;row++) {
+                        sb = new StringBuilder();
+                        for(int col=0;col<colTotal;col++) {
+                            String contents = sheet.getCell(col, row).getContents();
+                            sb.append("col"+col+" : "+contents+" , ");
+                        }
+                        Log.i("test", sb.toString());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BiffException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
