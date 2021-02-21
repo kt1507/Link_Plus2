@@ -1,10 +1,21 @@
 package com.example.linkmain;
 
+import android.util.Log;
+
+import org.apache.log4j.chainsaw.Main;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+
 public class StoreDBClass {
 
     public StoreClass[] store = new StoreClass[100];
 
-    //하드코딩
+        //하드코딩
     public void storedbclass(){
             store[0] = new StoreClass("대일전기", "전기","대전광역시 대덕구 오정동 370-9", 36.349524, 127.414039, "042-633-0765", "NULL", "NULL", 0,0);
             store[1] = new StoreClass("LS산전","전기","대전광역시 대덕구 오정동 298-5", 36.354680,127.407600,"NULL","월-금 08:30~18:00 / 토 08:30~15:00","일요일",0,0);

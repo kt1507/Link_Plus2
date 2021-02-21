@@ -1,6 +1,7 @@
 package com.example.linkmain;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity
 
     //숨겨진 페이지가 열렸는지 체크
     boolean isPageOpen = false;
-
+    //애니메이션
     Animation translateTopAnim;
     Animation translateBottomAnim;
     Animation translatestartAnim;
@@ -71,11 +72,15 @@ public class MainActivity extends AppCompatActivity
 
     private Menu mMenu;
 
+    public static Context mContext;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mContext = this;
 //        getSupportActionBar().hide();
 
 
@@ -312,6 +317,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        // Excel 데이터 가져오기
         try {
             InputStream is = getBaseContext().getResources().getAssets().open("StoreDB.xls");
             Workbook wb = Workbook.getWorkbook(is);
@@ -326,6 +332,7 @@ public class MainActivity extends AppCompatActivity
                     StringBuilder sb;
                     for(int row=rowIndexStart;row<rowTotal;row++) {
                         sb = new StringBuilder();
+                        sb.append("row" + row);
                         for(int col=0;col<colTotal;col++) {
                             String contents = sheet.getCell(col, row).getContents();
                             sb.append("col"+col+" : "+contents+" , ");
@@ -334,9 +341,37 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException | BiffException e) {
             e.printStackTrace();
-        } catch (BiffException e) {
+        }
+    }
+
+    public void ExcelRead(){
+        // Excel 데이터 가져오기
+        try {
+            InputStream is = getBaseContext().getResources().getAssets().open("StoreDB.xls");
+            Workbook wb = Workbook.getWorkbook(is);
+
+            if(wb != null) {
+                Sheet sheet = wb.getSheet(0);   // 시트 불러오기
+                if(sheet != null) {
+                    int colTotal = sheet.getColumns();    // 전체 컬럼
+                    int rowIndexStart = 1;                  // row 인덱스 시작
+                    int rowTotal = sheet.getColumn(colTotal-1).length;
+
+                    StringBuilder sb;
+                    for(int row=rowIndexStart;row<rowTotal;row++) {
+                        sb = new StringBuilder();
+                        sb.append("row" + row);
+                        for(int col=0;col<colTotal;col++) {
+                            String contents = sheet.getCell(col, row).getContents();
+                            sb.append("col"+col+" : "+contents+" , ");
+                        }
+                        Log.i("test", sb.toString());
+                    }
+                }
+            }
+        } catch (IOException | BiffException e) {
             e.printStackTrace();
         }
     }
@@ -557,14 +592,14 @@ public class MainActivity extends AppCompatActivity
         // 팝업 창
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("문의 메일 전송하기");
-        builder.setMessage("개발팀으로 문의사항을 메일로 전송합니다.\n(확인 시 자동으로 메일 앱으로 전환됩니다)\n\n[메일주소 : ostreetmaster@gmail.com]");
+        builder.setMessage("개발팀으로 문의사항을 메일로 전송합니다.\n(확인 시 자동으로 메일 앱으로 전환됩니다)\n\n[메일주소 : developerjt97@gmail.com]");
         builder.setPositiveButton("메일 전송하기", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.setType("plain/Text");
-                String[] address = {"ostreetmaster@gmail.com"};
+                String[] address = {"developerjt97@gmail.com"};
                 email.putExtra(Intent.EXTRA_EMAIL, address);
                 email.putExtra(Intent.EXTRA_SUBJECT,"오거리 문의사항 메일 전송");
                 email.putExtra(Intent.EXTRA_TEXT, "어플리케이션 [오거리] 문의/건의 사항\n\n[문의/건의사항 입력]\n");
